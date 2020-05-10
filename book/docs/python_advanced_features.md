@@ -20,7 +20,7 @@ With this last lecture, our advice is to **skip it on first pass**,
 unless you have a burning desire to read it.
 ```
 
-It\'s here
+It's here
 
 1.  as a reference, so we can link back to it when required, and
 2.  for those who have worked through a number of applications, and now
@@ -31,9 +31,9 @@ exceptions and descriptors.
 
 ## Iterables and Iterators
 
-We\'ve {ref}`already said something <iterating_version_1>` about iterating in Python.
+We've {ref}`already said something <iterating_version_1>` about iterating in Python.
 
-Now let\'s look more closely at how it all works, focusing in Python\'s
+Now let's look more closely at how it all works, focusing in Python's
 implementation of the `for` loop.
 
 ### Iterators
@@ -41,14 +41,14 @@ implementation of the `for` loop.
 Iterators are a uniform interface to stepping through elements in a
 collection.
 
-Here we\'ll talk about using iterators---later we\'ll learn how to
+Here we'll talk about using iterators---later we'll learn how to
 build our own.
 
 Formally, an *iterator* is an object with a `__next__` method.
 
 For example, file objects are iterators .
 
-<!-- To see this, let\'s have another look at the
+<!-- To see this, let's have another look at the
 {ref}`US cities data <us_cities_data>`, which
 is written to the present working directory in the following cell
 
@@ -97,7 +97,7 @@ next(e)
 
 as are the reader objects from the `csv` module .
 
-Let\'s create a small csv file that contains data from the NIKKEI index
+Let's create a small csv file that contains data from the NIKKEI index
 
 <!-- ```{code-cell} ipython3
 %%file test_table.csv
@@ -282,7 +282,7 @@ x = 42
 ```
 
 We now know that when this statement is executed, Python creates an
-object of type `int` in your computer\'s memory, containing
+object of type `int` in your computer's memory, containing
 
 -   the value `42`
 -   some associated attributes
@@ -318,7 +318,7 @@ would use `f`.
 
 What happens when the number of names bound to an object goes to zero?
 
-Here\'s an example of this situation, where the name `x` is first bound
+Here's an example of this situation, where the name `x` is first bound
 to one object and then rebound to another
 
 ```{code-cell} ipython3
@@ -372,7 +372,7 @@ Now we start the Python interpreter and import it
 import math2
 ```
 
-Next let\'s import the `math` module from the standard library
+Next let's import the `math` module from the standard library
 
 ```{code-cell} ipython3
 import math
@@ -466,10 +466,10 @@ To check this, we can look at the current module name via the value of
 print(__name__)
 ```
 
-When we run a script using IPython\'s `run` command, the contents of the
+When we run a script using IPython's `run` command, the contents of the
 file are executed as part of `__main__` too.
 
-To see this, let\'s create a file `mod.py` that prints its own
+To see this, let's create a file `mod.py` that prints its own
 `__name__` attribute
 
 <!-- ```{code-cell} ipython3
@@ -477,7 +477,7 @@ To see this, let\'s create a file `mod.py` that prints its own
 print(__name__)
 ```
 
-Now let\'s look at two different ways of running it in IPython
+Now let's look at two different ways of running it in IPython
 
 ```{code-cell} ipython3
 import mod  # Standard import
@@ -535,7 +535,7 @@ namespace.
 Once execution of the module finishes, the interpreter returns to the
 module from where the import statement was made.
 
-In this case it\'s `__main__`, so the namespace of `__main__` again
+In this case it's `__main__`, so the namespace of `__main__` again
 becomes the global namespace.
 
 ### Local Namespaces
@@ -562,7 +562,7 @@ def f(x):
     return a * x
 ```
 
-Now let\'s call the function
+Now let's call the function
 
 ```{code-cell} ipython3
 f(1)
@@ -611,7 +611,7 @@ The next section explains how this works ...
 
 Namespaces are great because they help us organize variable names.
 
-(Type `import this` at the prompt and look at the last item that\'s
+(Type `import this` at the prompt and look at the last item that's
 printed)
 
 However, we do need to understand how the Python interpreter works with
@@ -663,7 +663,7 @@ If the name is not in any of these namespaces, the interpreter raises a
 
 This is called the **LEGB rule** (local, enclosing, global, builtin).
 
-Here\'s an example that helps to illustrate .
+Here's an example that helps to illustrate .
 
 Consider a script `test.py` that looks as follows
 
@@ -742,7 +742,7 @@ value is returned.
 
 None of this affects the global `x`.
 
-However, it\'s a different story when we use a **mutable** data type
+However, it's a different story when we use a **mutable** data type
 such as a list
 
 ```{code-cell} ipython3
@@ -756,7 +756,7 @@ print(f(x), x)
 
 This prints `[2]` as the value of `f(x)` and *same* for `x`.
 
-Here\'s what happens
+Here's what happens
 
 -   `f` is registered as a function in the global namespace
 -   `x` bound to `[1]` in the global namespace
@@ -770,7 +770,7 @@ Here\'s what happens
 
 ## Handling Errors
 
-Sometimes it\'s possible to anticipate errors as we\'re writing code.
+Sometimes it's possible to anticipate errors as we're writing code.
 
 For example, the unbiased sample variance of sample $y_1, \ldots, y_n$
 is defined as
@@ -788,7 +788,7 @@ might anticipate a divide-by-zero error when the sample size is one.
 One possible action is to do nothing --- the program will just crash,
 and spit out an error message.
 
-But sometimes it\'s worth writing your code in a way that anticipates
+But sometimes it's worth writing your code in a way that anticipates
 and deals with runtime errors that you think might arise.
 
 Why?
@@ -796,16 +796,16 @@ Why?
 -   Because the debugging information provided by the interpreter is
     often less useful than the information on possible errors you have
     in your head when writing code.
--   Because errors causing execution to stop are frustrating if you\'re
+-   Because errors causing execution to stop are frustrating if you're
     in the middle of a large computation.
--   Because it\'s reduces confidence in your code on the part of your
+-   Because it's reduces confidence in your code on the part of your
     users (if you are writing for others).
 
 ### Assertions
 
 A relatively easy way to handle checks is with the `assert` keyword.
 
-For example, pretend for a moment that the `np.var` function doesn\'t
+For example, pretend for a moment that the `np.var` function doesn't
 exist and we need to write our own
 
 ```{code-cell} ipython3
@@ -835,11 +835,11 @@ termination.
 Sometimes we can handle errors more gracefully, by treating special
 cases.
 
-Let\'s look at how this is done.
+Let's look at how this is done.
 
 #### Exceptions
 
-Here\'s an example of a common error type
+Here's an example of a common error type
 
 ```python
 def f:
@@ -848,7 +848,7 @@ def f:
 Since illegal syntax cannot be executed, a syntax error terminates
 execution of the program.
 
-Here\'s a different kind of error, unrelated to syntax
+Here's a different kind of error, unrelated to syntax
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
@@ -856,7 +856,7 @@ Here\'s a different kind of error, unrelated to syntax
 1 / 0
 ```
 
-Here\'s another
+Here's another
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
@@ -891,7 +891,7 @@ In Python, these errors are called *exceptions*.
 
 We can catch and deal with exceptions using `try` -- `except` blocks.
 
-Here\'s a simple example
+Here's a simple example
 
 ```{code-cell} ipython3
 def f(x):
@@ -934,7 +934,7 @@ def f(x):
     return None
 ```
 
-Here\'s what happens
+Here's what happens
 
 ```{code-cell} ipython3
 f(2)
@@ -959,7 +959,7 @@ def f(x):
     return None
 ```
 
-Here\'s what happens
+Here's what happens
 
 ```{code-cell} ipython3
 f(2)
@@ -984,15 +984,15 @@ def f(x):
     return None
 ```
 
-In general it\'s better to be specific.
+In general it's better to be specific.
 
 ## Decorators and Descriptors
 
-Let\'s look at some special syntax elements that are routinely used by
+Let's look at some special syntax elements that are routinely used by
 Python developers.
 
 You might not need the following concepts immediately, but you will see
-them in other people\'s code.
+them in other people's code.
 
 Hence you need to understand them at some stage of your Python
 education.
@@ -1002,7 +1002,7 @@ education.
 Decorators are a bit of syntactic sugar that, while easily avoided, have
 turned out to be popular.
 
-It\'s very easy to say what decorators do.
+It's very easy to say what decorators do.
 
 On the other hand it takes a bit of effort to explain *why* you might
 use them.
@@ -1023,16 +1023,16 @@ def g(x):
 # Program continues with various calculations using f and g
 ```
 
-Now suppose there\'s a problem: occasionally negative numbers get fed to
+Now suppose there's a problem: occasionally negative numbers get fed to
 `f` and `g` in the calculations that follow.
 
-If you try it, you\'ll see that when these functions are called with
+If you try it, you'll see that when these functions are called with
 negative numbers they return a NumPy object called `nan` .
 
 This stands for \"not a number\" (and indicates that you are trying to
 evaluate a mathematical function at a point where it is not defined).
 
-Perhaps this isn\'t what we want, because it causes other problems that
+Perhaps this isn't what we want, because it causes other problems that
 are hard to pick up later on.
 
 Suppose that instead we want the program to terminate whenever this
@@ -1060,7 +1060,7 @@ identical lines of code.
 Repetition makes our code longer and harder to maintain, and hence is
 something we try hard to avoid.
 
-Here it\'s not a big deal, but imagine now that instead of just `f` and
+Here it's not a big deal, but imagine now that instead of just `f` and
 `g`, we have 20 such functions that we need to modify in exactly the
 same way.
 
@@ -1092,7 +1092,7 @@ g = check_nonneg(g)
 # Program continues with various calculations using f and g
 ```
 
-This looks complicated so let\'s work through it slowly.
+This looks complicated so let's work through it slowly.
 
 To unravel the logic, consider what happens when we say
 `f = check_nonneg(f)`.
@@ -1245,7 +1245,7 @@ class Car:
     kms = property(get_kms, set_kms)
 ```
 
-First let\'s check that we get the desired behavior
+First let's check that we get the desired behavior
 
 ```{code-cell} ipython3
 car = Car()
@@ -1257,7 +1257,7 @@ car.miles = 6000
 car.kms
 ```
 
-Yep, that\'s what we want --- `car.kms` is automatically updated.
+Yep, that's what we want --- `car.kms` is automatically updated.
 
 #### How it Works
 
@@ -1286,7 +1286,7 @@ setter method is triggered --- in this case `set_miles`.
 These days its very common to see the `property` function used via a
 decorator.
 
-Here\'s another version of our `Car` class that works as before but now
+Here's another version of our `Car` class that works as before but now
 uses decorators to set up the properties
 
 ```{code-cell} ipython3
@@ -1315,7 +1315,7 @@ class Car:
         self._miles = value / 1.61
 ```
 
-We won\'t go through all the details here.
+We won't go through all the details here.
 
 For further information you can refer to the [descriptor documentation](https://docs.python.org/3/howto/descriptor.html).
 
@@ -1391,11 +1391,11 @@ sum(x * x for x in range(10))
 The most flexible way to create generator objects is to use generator
 functions.
 
-Let\'s look at some examples.
+Let's look at some examples.
 
 #### Example 1
 
-Here\'s a very simple example of a generator function
+Here's a very simple example of a generator function
 
 ```{code-cell} ipython3
 def f():
@@ -1404,10 +1404,10 @@ def f():
     yield 'end'
 ```
 
-It looks like a function, but uses a keyword `yield` that we haven\'t
+It looks like a function, but uses a keyword `yield` that we haven't
 met before.
 
-Let\'s see how it works after running this code
+Let's see how it works after running this code
 
 ```{code-cell} ipython3
 type(f)
@@ -1474,7 +1474,7 @@ def g(x):
         x = x * x
 ```
 
-Let\'s see how it works
+Let's see how it works
 
 ```{code-cell} ipython3
 g
@@ -1537,7 +1537,7 @@ def g(x):
 
 ### Advantages of Iterators
 
-What\'s the advantage of using an iterator here?
+What's the advantage of using an iterator here?
 
 Suppose we want to sample a binomial(n,0.5).
 
@@ -1573,7 +1573,7 @@ def f(n):
         i += 1
 ```
 
-Now let\'s do the sum
+Now let's do the sum
 
 ```{code-cell} ipython3
 n = 10000000
@@ -1628,7 +1628,7 @@ def x(t):
         return 2 * x(t-1)
 ```
 
-What happens here is that each successive call uses it\'s own *frame* in
+What happens here is that each successive call uses it's own *frame* in
 the *stack*
 
 -   a frame is where the local variables of a given function call are held
@@ -1638,7 +1638,7 @@ the *stack*
 This example is somewhat contrived, since the first (iterative) solution
 would usually be preferred to the recursive solution.
 
-We\'ll meet less contrived applications of recursion later on.
+We'll meet less contrived applications of recursion later on.
 
 ## Exercises
 
@@ -1660,7 +1660,7 @@ any $t$.
 
 Complete the following code, and test it using [this csv
 file](https://raw.githubusercontent.com/QuantEcon/lecture-source-py/master/source/_static/lecture_specific/python_advanced_features/test_table.csv),
-which we assume that you\'ve put in your current working directory
+which we assume that you've put in your current working directory
 
 ```python
 def column_iterator(target_file, column_number):
@@ -1698,7 +1698,7 @@ file and sum the numbers, ignoring lines without numbers.
 
 ### Exercise 1
 
-Here\'s the standard solution
+Here's the standard solution
 
 ```{code-cell} ipython3
 def x(t):
@@ -1710,7 +1710,7 @@ def x(t):
         return x(t-1) + x(t-2)
 ```
 
-Let\'s test it
+Let's test it
 
 ```{code-cell} ipython3
 print([x(i) for i in range(10)])
@@ -1745,7 +1745,7 @@ for date in dates:
 
 ### Exercise 3
 
-<!-- Let\'s save the data first
+<!-- Let's save the data first
 
 ```{code-cell} ipython3
 %%file numbers.txt

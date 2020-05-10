@@ -30,7 +30,7 @@ install but *not* what you should choose for these lectures.
 These lectures require the entire scientific programming ecosystem,
 which
 
--   the core installation doesn\'t provide
+-   the core installation doesn't provide
 -   is painful to install one piece at a time.
 
 Hence the best approach for our purposes is to install a Python
@@ -67,7 +67,7 @@ binary and follow the instructions.
 Important points:
 
 -   Install the latest version!
--   If you are asked during the installation process whether you\'d like
+-   If you are asked during the installation process whether you'd like
     to make Anaconda your default Python installation, say yes.
 
 ### Updating Anaconda
@@ -103,7 +103,7 @@ They use a *browser-based* interface to Python with
 Because of these features, Jupyter is now a major player in the
 scientific computing ecosystem.
 
-Here\'s an image showing execution of some code (borrowed from
+Here's an image showing execution of some code (borrowed from
 [here](http://matplotlib.org/examples/pylab_examples/hexbin_demo.html))
 in a Jupyter notebook
 
@@ -111,7 +111,7 @@ in a Jupyter notebook
 :scale: 50%
 ```
 
-While Jupyter isn\'t the only way to code in Python, it\'s great for
+While Jupyter isn't the only way to code in Python, it's great for
 when you wish to
 
 -   start coding in Python
@@ -161,7 +161,7 @@ similar, matching the message above.
 Assuming all this has worked OK, you can now click on `New` at the top
 right and select `Python 3` or similar.
 
-Here\'s what shows up on our machine:
+Here's what shows up on our machine:
 
 ```{figure} /_static/lecture_specific/getting_started/nb2.png
 :scale: 50%
@@ -172,7 +172,7 @@ commands.
 
 ### Notebook Basics
 
-Let\'s start with how to edit code and run simple programs.
+Let's start with how to edit code and run simple programs.
 
 #### Running Cells
 
@@ -184,7 +184,7 @@ This means that the cell is in *edit mode*.
 In this mode, whatever you type will appear in the cell with the
 flashing cursor.
 
-When you\'re ready to execute the code in a cell, hit `Shift-Enter`
+When you're ready to execute the code in a cell, hit `Shift-Enter`
 instead of the usual `Enter`.
 
 ```{figure} /_static/lecture_specific/getting_started/nb3.png
@@ -231,12 +231,12 @@ In a code cell, try typing `\alpha` and then hitting the
 
 #### A Test Program
 
-Let\'s run a test program.
+Let's run a test program.
 
-Here\'s an arbitrary program we can use:
+Here's an arbitrary program we can use:
 <http://matplotlib.org/3.1.1/gallery/pie_and_polar_charts/polar_bar.html>.
 
-On that page, you\'ll see the following code
+On that page, you'll see the following code
 
 ```{code-cell} ipython3
 import numpy as np
@@ -259,7 +259,7 @@ ax.bar(theta, radii, width=width, bottom=0.0, color=colors, alpha=0.5)
 plt.show()
 ```
 
-Don\'t worry about the details for now --- let\'s just run it and see
+Don't worry about the details for now --- let's just run it and see
 what happens.
 
 The easiest way to run this code is to copy and paste it into a cell in
@@ -275,7 +275,7 @@ Here are a few more tips on working with Jupyter notebooks.
 
 In the previous program, we executed the line `import numpy as np`
 
--   NumPy is a numerical library we\'ll work with in depth.
+-   NumPy is a numerical library we'll work with in depth.
 
 After this import command, functions in NumPy can be accessed with
 `np.function_name` type syntax.
@@ -292,7 +292,7 @@ For example, here we type `np.ran` and hit Tab
 
 Jupyter offers up the two possible completions, `random` and `rank`.
 
-In this way, the Tab key helps remind you of what\'s available and also
+In this way, the Tab key helps remind you of what's available and also
 saves you typing.
 
 (gs_help)=
@@ -367,7 +367,7 @@ Most of the libraries we need come in Anaconda.
 
 Other libraries can be installed with `pip`.
 
-One library we\'ll be using is
+One library we'll be using is
 [QuantEcon.py](http://quantecon.org/quantecon-py).
 
 (gs_install_qe)=
@@ -399,7 +399,7 @@ This can be installed by typing in Jupyter
 
 ## Working with Python Files
 
-So far we\'ve focused on executing Python code entered into a Jupyter
+So far we've focused on executing Python code entered into a Jupyter
 notebook cell.
 
 Traditionally most Python code has been run in a different way.
@@ -424,7 +424,7 @@ magic](http://ipython.readthedocs.org/en/stable/interactive/magics.html#cell-mag
 
 ### Editing and Execution
 
-If you come across code saved in a `*.py` file, you\'ll need to consider
+If you come across code saved in a `*.py` file, you'll need to consider
 the following questions:
 
 1.  how should you execute it?
@@ -468,7 +468,7 @@ Code](https://code.visualstudio.com/).
 VS Code is easy to use out of the box and has many high quality
 extensions.
 
-Alternatively, if you want an outstanding free text editor and don\'t
+Alternatively, if you want an outstanding free text editor and don't
 mind a seemingly vertical learning curve plus long days of pain and
 suffering while all your neural pathways are rewired, try
 [Vim](http://www.vim.org/).
@@ -489,7 +489,7 @@ Note also the startup message: It should give you a URL such as
 
 Now
 
-1.  Start your browser --- or open a new tab if it\'s already running.
+1.  Start your browser --- or open a new tab if it's already running.
 2.  Enter the URL from above (e.g. `http://localhost:8888`) in the
     address bar at the top.
 
@@ -511,7 +511,7 @@ In many cases, the associated collections of files --- called
 
 GitHub is a wonderland of collaborative coding projects.
 
-For example, it hosts many of the scientific libraries we\'ll be using
+For example, it hosts many of the scientific libraries we'll be using
 later on, such as [this one](https://github.com/pydata/pandas).
 
 Git is the underlying software used to manage these projects.
@@ -534,7 +534,7 @@ As the 1st task, try
 2.  Getting a copy of
     [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py) using Git.
 
-For example, if you\'ve installed the command line version, open up a
+For example, if you've installed the command line version, open up a
 terminal and enter.
 
 > `git clone https://github.com/QuantEcon/QuantEcon.py`.
@@ -544,7 +544,7 @@ terminal and enter.
 As the 2nd task,
 
 1.  Sign up to [GitHub](https://github.com/).
-2.  Look into \'forking\' GitHub repositories (forking means making your
+2.  Look into 'forking' GitHub repositories (forking means making your
     own copy of a GitHub repository, stored on GitHub).
 3.  Fork [QuantEcon.py](https://github.com/QuantEcon/QuantEcon.py).
 4.  Clone your fork to some local directory, make edits, commit them,

@@ -13,7 +13,7 @@ kernelspec:
 
 # Parallelization
 
-In addition to what\'s in Anaconda, this lecture will need the following
+In addition to what's in Anaconda, this lecture will need the following
 libraries:
 
 ```{code-cell} ipython3
@@ -51,7 +51,7 @@ with a focus on
 1.  the best tools for parallelization in Python and
 2.  how these tools can be applied to quantitative economic problems.
 
-Let\'s start with some imports:
+Let's start with some imports:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -64,7 +64,7 @@ import matplotlib.pyplot as plt
 ## Types of Parallelization
 
 Large textbooks have been written on different approaches to
-parallelization but we will keep a tight focus on what\'s most useful to
+parallelization but we will keep a tight focus on what's most useful to
 us.
 
 We will briefly review the two main kinds of parallelization commonly
@@ -99,7 +99,7 @@ But this is not a restriction for scientific libraries like NumPy and
 Numba.
 
 Functions imported from these libraries and JIT-compiled code run in low
-level execution environments where Python\'s legacy restrictions don\'t
+level execution environments where Python's legacy restrictions don't
 apply.
 
 ### Advantages and Disadvantages
@@ -127,7 +127,7 @@ Anaconda Python.)
 This is because NumPy cleverly implements multithreading in a lot of its
 compiled code.
 
-Let\'s look at some examples to see this in action.
+Let's look at some examples to see this in action.
 
 ### A Matrix Operation
 
@@ -144,7 +144,7 @@ for i in range(n):
     λ = np.linalg.eigvals(X)
 ```
 
-Now, let\'s look at the output of the `htop` system monitor
+Now, let's look at the output of the `htop` system monitor
 on our machine while this code is running:
 
 ```{figure} /_static/lecture_specific/parallelization/htop_parallel_npmat.png
@@ -153,7 +153,7 @@ on our machine while this code is running:
 
 We can see that 4 of the 8 CPUs are running at full speed.
 
-This is because NumPy\'s `eigvals` routine neatly splits up the tasks
+This is because NumPy's `eigvals` routine neatly splits up the tasks
 and distributes them to different threads.
 
 ### A Multithreaded Ufunc
@@ -161,7 +161,7 @@ and distributes them to different threads.
 Over the last few years, NumPy has managed to push this kind of
 multithreading out to more and more operations.
 
-For example, let\'s return to a maximization problem
+For example, let's return to a maximization problem
 {ref}`discussed previously <ufuncs>`:
 
 ```{code-cell} ipython3
@@ -189,7 +189,7 @@ This is one of the reasons why the vectorized code above is fast.
 
 ### A Comparison with Numba
 
-To get some basis for comparison for the last example, let\'s try the
+To get some basis for comparison for the last example, let's try the
 same thing with Numba.
 
 In fact there is an easy way to do this, since Numba can also be used to
@@ -214,10 +214,10 @@ np.max(f_vec(x, y))  # Run once to compile
 At least on our machine, the difference in the speed between the Numba
 version and the vectorized NumPy version shown above is not large.
 
-But there\'s quite a bit going on here so let\'s try to break down what
+But there's quite a bit going on here so let's try to break down what
 is happening.
 
-Both Numba and NumPy use efficient machine code that\'s specialized to
+Both Numba and NumPy use efficient machine code that's specialized to
 these floating point operations.
 
 However, the code NumPy uses is, in some ways, less efficient.
@@ -234,10 +234,10 @@ so on.
 Numba avoids creating all these intermediate arrays by compiling one
 function that is specialized to the entire operation.
 
-But if this is true, then why isn\'t the Numba code faster?
+But if this is true, then why isn't the Numba code faster?
 
 The reason is that NumPy makes up for its disadvantages with implicit
-multithreading, as we\'ve just discussed.
+multithreading, as we've just discussed.
 
 ### Multithreading a Numba Ufunc
 
@@ -245,9 +245,9 @@ Can we get both of these advantages at once?
 
 In other words, can we pair
 
--   the efficiency of Numba\'s highly specialized JIT compiled function
+-   the efficiency of Numba's highly specialized JIT compiled function
     and
--   the speed gains from parallelization obtained by NumPy\'s implicit
+-   the speed gains from parallelization obtained by NumPy's implicit
     multithreading?
 
 It turns out that we can, by adding some type information plus
@@ -278,7 +278,7 @@ consider.
 Fortunately, Numba provides another approach to multithreading that will
 work for us almost everywhere parallelization is possible.
 
-To illustrate, let\'s look first at a simple, single-threaded (i.e.,
+To illustrate, let's look first at a simple, single-threaded (i.e.,
 non-parallelized) piece of code.
 
 The code simulates updating the wealth $w_t$ of a household via the rule
@@ -296,7 +296,7 @@ Here
 We model both $R$ and $y$ as independent draws from a lognormal
 distribution.
 
-Here\'s the code:
+Here's the code:
 
 ```{code-cell} ipython3
 from numpy.random import randn
@@ -317,7 +317,7 @@ def h(w, r=0.1, s=0.3, v1=0.1, v2=1.0):
     return w
 ```
 
-Let\'s have a look at how wealth evolves under this rule.
+Let's have a look at how wealth evolves under this rule.
 
 ```{code-cell} ipython3
 fig, ax = plt.subplots()
@@ -334,7 +334,7 @@ ax.set_ylabel('$w_{t}$', fontsize=12)
 plt.show()
 ```
 
-Now let\'s suppose that we have a large population of households and we
+Now let's suppose that we have a large population of households and we
 want to know what median wealth will be.
 
 This is not easy to solve with pencil and paper, so we will use
@@ -346,12 +346,12 @@ calculate median wealth for this group.
 Suppose we are interested in the long-run average of this median over
 time.
 
-It turns out that, for the specification that we\'ve chosen above, we
+It turns out that, for the specification that we've chosen above, we
 can calculate this by taking a one-period snapshot of what has happened
 to median wealth of the group at the end of a long simulation.
 
 Moreover, provided the simulation period is long enough, initial
-conditions don\'t matter.
+conditions don't matter.
 
 -   This is due to something called ergodicity, which we will discuss [later on](https://python-intro.quantecon.org/finite_markov.html#Ergodicity).
 
@@ -360,9 +360,9 @@ So, in summary, we are going to simulate 50,000 households by
 1.  arbitrarily setting initial wealth to 1 and
 2.  simulating forward in time for 1,000 periods.
 
-Then we\'ll calculate median wealth at the end period.
+Then we'll calculate median wealth at the end period.
 
-Here\'s the code:
+Here's the code:
 
 ```{code-cell} ipython3
 @njit
@@ -378,14 +378,14 @@ def compute_long_run_median(w0=1, T=1000, num_reps=50_000):
     return np.median(obs)
 ```
 
-Let\'s see how fast this runs:
+Let's see how fast this runs:
 
 ```{code-cell} ipython3
 %%time
 compute_long_run_median()
 ```
 
-To speed this up, we\'re going to parallelize it via multithreading.
+To speed this up, we're going to parallelize it via multithreading.
 
 To do so, we add the `parallel=True` flag and change `range` to
 `prange`:
@@ -406,7 +406,7 @@ def compute_long_run_median_parallel(w0=1, T=1000, num_reps=50_000):
     return np.median(obs)
 ```
 
-Let\'s look at the timing:
+Let's look at the timing:
 
 ```{code-cell} ipython3
 %%time
@@ -482,7 +482,7 @@ def calculate_pi(n=1_000_000):
     return area_estimate * 4  # dividing by radius**2
 ```
 
-Now let\'s see how fast it runs:
+Now let's see how fast it runs:
 
 ```{code-cell} ipython3
 %time calculate_pi()

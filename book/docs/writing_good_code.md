@@ -35,7 +35,7 @@ design.
 
 ## An Example of Poor Code
 
-Let\'s have a look at some poorly written code.
+Let's have a look at some poorly written code.
 
 The job of the code is to generate and plot time series of the
 simplified Solow model
@@ -132,19 +132,19 @@ plt.show()
 True, the code more or less follows
 [PEP8](https://www.python.org/dev/peps/pep-0008/).
 
-At the same time, it\'s very poorly structured.
+At the same time, it's very poorly structured.
 
-Let\'s talk about why that\'s the case, and what we can do about it.
+Let's talk about why that's the case, and what we can do about it.
 
 ## Good Coding Practice
 
 There are usually many different ways to write a program that
 accomplishes a given task.
 
-For small programs, like the one above, the way you write code doesn\'t
+For small programs, like the one above, the way you write code doesn't
 matter too much.
 
-But if you are ambitious and want to produce useful things, you\'ll
+But if you are ambitious and want to produce useful things, you'll
 write medium to large programs too.
 
 In those settings, coding style matters **a great deal**.
@@ -154,9 +154,9 @@ write code.
 
 Here are some basic precepts.
 
-### Don\'t Use Magic Numbers
+### Don't Use Magic Numbers
 
-If you look at the code above, you\'ll see numbers like `50` and `49`
+If you look at the code above, you'll see numbers like `50` and `49`
 and `3` scattered through the code.
 
 These kinds of numeric literals in the body of your code are sometimes
@@ -177,14 +177,14 @@ The advantages are:
 -   the meaning is much clearer throughout
 -   to alter the time series length, you only need to change one value
 
-### Don\'t Repeat Yourself
+### Don't Repeat Yourself
 
 The other mortal sin in the code snippet above is repetition.
 
 Blocks of logic (such as the loop to generate time series) are repeated
 with only minor changes.
 
-This violates a fundamental tenet of programming: Don\'t repeat yourself
+This violates a fundamental tenet of programming: Don't repeat yourself
 (DRY).
 
 -   Also called DIE (duplication is evil).
@@ -201,7 +201,7 @@ that eventually one of them will likely be wrong.
 If you want to know more, read the excellent summary found on [this
 page](https://code.tutsplus.com/tutorials/3-key-software-principles-you-must-understand--net-25161).
 
-We\'ll talk about how to avoid repetition below.
+We'll talk about how to avoid repetition below.
 
 ### Minimize Global Variables
 
@@ -220,13 +220,13 @@ programs, since
 This makes it much harder to be certain about what some small part of a
 given piece of code actually commands.
 
-Here\'s a [useful discussion on the
+Here's a [useful discussion on the
 topic](http://wiki.c2.com/?GlobalVariablesAreBad).
 
 While the odd global in small scripts is no big deal, we recommend that
 you teach yourself to avoid them.
 
-(We\'ll discuss how just below).
+(We'll discuss how just below).
 
 #### JIT Compilation
 
@@ -259,15 +259,15 @@ variables.
 
 Both can be useful, and in fact they work well with each other.
 
-We\'ll learn more about these topics over time.
+We'll learn more about these topics over time.
 
 (Personal preference is part of the story too)
 
-What\'s really important is that you use one or the other or both.
+What's really important is that you use one or the other or both.
 
 ## Revisiting the Example
 
-Here\'s some code that reproduces the plot above with better coding
+Here's some code that reproduces the plot above with better coding
 style.
 
 ```{code-cell} ipython3
@@ -368,7 +368,7 @@ print(f'Equilibrium price is {p_star: .2f}')
 print(f'Equilibrium quantity is {q_star: .2f}')
 ```
 
-Let\'s also plot our results.
+Let's also plot our results.
 
 ```{code-cell} ipython3
 # Now plot
@@ -391,7 +391,7 @@ plt.show()
 
 We also want to consider supply and demand shifts.
 
-For example, let\'s see what happens when demand shifts up, with
+For example, let's see what happens when demand shifts up, with
 $\gamma$ increasing to $1.25$:
 
 ```{code-cell} ipython3
@@ -426,7 +426,7 @@ plt.show()
 ```
 
 Now we might consider supply shifts, but you already get the idea that
-there\'s a lot of repeated code here.
+there's a lot of repeated code here.
 
 Refactor and improve clarity in the code above using the principles
 discussed in this lecture.
@@ -435,7 +435,7 @@ discussed in this lecture.
 
 ### Exercise 1
 
-Here\'s one solution, that uses a class:
+Here's one solution, that uses a class:
 
 ```{code-cell} ipython3
 class Equilibrium:
@@ -473,13 +473,13 @@ class Equilibrium:
         plt.show()
 ```
 
-Let\'s create an instance at the default parameter values.
+Let's create an instance at the default parameter values.
 
 ```{code-cell} ipython3
 eq = Equilibrium()
 ```
 
-Now we\'ll compute the equilibrium and plot it.
+Now we'll compute the equilibrium and plot it.
 
 ```{code-cell} ipython3
 eq.compute_equilibrium()
@@ -490,7 +490,7 @@ eq.plot_equilibrium()
 ```
 
 One of the nice things about our refactored code is that, when we change
-parameters, we don\'t need to repeat ourselves:
+parameters, we don't need to repeat ourselves:
 
 ```{code-cell} ipython3
 eq.γ = 1.25

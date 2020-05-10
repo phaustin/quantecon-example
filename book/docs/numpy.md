@@ -13,7 +13,7 @@ kernelspec:
 
 # NumPy
 
-> \"Let\'s be clear: the work of science has nothing whatever to do with
+> \"Let's be clear: the work of science has nothing whatever to do with
 > consensus. Consensus is the business of politics. Science, on the
 > contrary, requires only one investigator who happens to be right,
 > which means that he or she has results that are verifiable by
@@ -53,7 +53,7 @@ formally called a
 NumPy arrays power a large proportion of the scientific Python
 ecosystem.
 
-Let\'s first import the library.
+Let's first import the library.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -143,7 +143,7 @@ to the `zeros()` function, as in `z = np.zeros((2, 2))`.
 
 ### Creating Arrays
 
-As we\'ve seen, the `np.zeros` function creates an array of zeros.
+As we've seen, the `np.zeros` function creates an array of zeros.
 
 You can probably guess what `np.ones` creates.
 
@@ -290,7 +290,7 @@ d
 z[d]
 ```
 
-We\'ll see why this is useful below.
+We'll see why this is useful below.
 
 An aside: all elements of an array can be set equal to one number using
 slice notation
@@ -437,7 +437,7 @@ element-wise product.
 
 ### Matrix Multiplication
 
-With Anaconda\'s scientific Python package based around Python 3.5 and
+With Anaconda's scientific Python package based around Python 3.5 and
 above, one can use the `@` symbol for matrix multiplication, as follows:
 
 ```{code-cell} ipython3
@@ -480,7 +480,7 @@ initialization.
 
 We already saw examples above.
 
-Here\'s another example:
+Here's another example:
 
 ```{code-cell} ipython3
 a = np.array([42, 44])
@@ -506,7 +506,7 @@ b[0] = 0.0
 a
 ```
 
-What\'s happened is that we have changed `a` by changing `b`.
+What's happened is that we have changed `a` by changing `b`.
 
 The name `b` is bound to `a` and becomes just another reference to the
 array (the Python assignment model is described in more detail
@@ -553,7 +553,7 @@ Note that the change to `b` has not affected `a`.
 
 ## Additional Functionality
 
-Let\'s look at some other useful things we can do with NumPy.
+Let's look at some other useful things we can do with NumPy.
 
 ### Vectorized Functions
 
@@ -620,7 +620,7 @@ f = np.vectorize(f)
 f(x)                # Passing the same vector x as in the previous example
 ```
 
-However, this approach doesn\'t always obtain the same speed as a more
+However, this approach doesn't always obtain the same speed as a more
 carefully crafted vectorized function.
 
 ### Comparisons
@@ -677,7 +677,7 @@ z[z > 3]
 NumPy provides some additional functionality related to scientific
 programming through its sub-packages.
 
-We\'ve already seen how we can generate random variables using
+We've already seen how we can generate random variables using
 `np.random`
 
 ```{code-cell} ipython3
@@ -702,10 +702,10 @@ Much of this functionality is also available in
 [SciPy](http://www.scipy.org/), a collection of modules that are built
 on top of NumPy.
 
-We\'ll cover the SciPy versions in more detail
+We'll cover the SciPy versions in more detail
 [soon](scipy).
 
-For a comprehensive list of what\'s available in NumPy see [this
+For a comprehensive list of what's available in NumPy see [this
 documentation](https://docs.scipy.org/doc/numpy/reference/routines.html).
 
 ## Exercises
@@ -730,7 +730,7 @@ and array operations for its computations, rather than any form of
 Python loop.
 
 (Such functionality is already implemented as `np.poly1d`, but for the
-sake of the exercise don\'t use this class)
+sake of the exercise don't use this class)
 
 -   Hint: Use `np.cumprod()`
 
@@ -771,7 +771,7 @@ def sample(q):
         a = a + q[i]
 ```
 
-If you can\'t see how this works, try thinking through the flow for a
+If you can't see how this works, try thinking through the flow for a
 simple example, such as `q = [0.25, 0.75]` It helps to sketch the
 intervals on paper.
 
@@ -824,7 +824,7 @@ def p(x, coef):
     return coef @ y
 ```
 
-Let\'s test it
+Let's test it
 
 ```{code-cell} ipython3
 x = 2
@@ -838,7 +838,7 @@ print(q(x))
 
 ### Exercise 2
 
-Here\'s our first pass at a solution:
+Here's our first pass at a solution:
 
 ```{code-cell} ipython3
 from numpy import cumsum
@@ -898,7 +898,7 @@ using descriptors that behaves as we desire can be found
 
 An example solution is given below.
 
-In essence, we\'ve just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
+In essence, we've just taken [this code](https://github.com/QuantEcon/QuantEcon.py/blob/master/quantecon/ecdf.py)
 from QuantEcon and added in a plot method
 
 ```{code-cell} ipython3
@@ -970,7 +970,7 @@ class ECDF:
         plt.show()
 ```
 
-Here\'s an example of usage
+Here's an example of usage
 
 ```{code-cell} ipython3
 fig, ax = plt.subplots()

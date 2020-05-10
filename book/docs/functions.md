@@ -15,7 +15,7 @@ kernelspec:
 
 ## Overview
 
-One construct that\'s extremely useful and provided by almost all
+One construct that's extremely useful and provided by almost all
 programming languages is **functions**.
 
 We have already met several functions, such as
@@ -23,7 +23,7 @@ We have already met several functions, such as
 -   the `sqrt()` function from NumPy and
 -   the built-in `print()` function
 
-In this lecture we\'ll treat functions systematically and begin to learn
+In this lecture we'll treat functions systematically and begin to learn
 just how useful and important they are.
 
 One of the things we will learn to do is build our own user-defined
@@ -88,13 +88,13 @@ The full list of Python built-ins is
 
 ### Third Party Functions
 
-If the built-in functions don\'t cover what we need, we either need to
+If the built-in functions don't cover what we need, we either need to
 import functions or create our own.
 
 Examples of importing and using functions were given in the
 {ref}`previous lecture <python_by_example>`
 
-Here\'s another one, which tests whether a given year is a leap year:
+Here's another one, which tests whether a given year is a leap year:
 
 ```{code-cell} ipython3
 import calendar
@@ -108,11 +108,11 @@ In many instances, it is useful to be able to define our own functions.
 
 This will become clearer as you see more examples.
 
-Let\'s start by discussing how it\'s done.
+Let's start by discussing how it's done.
 
 ### Syntax
 
-Here\'s a very simple Python function, that implements the mathematical
+Here's a very simple Python function, that implements the mathematical
 function $f(x) = 2 x + 1$
 
 ```{code-cell} ipython3
@@ -120,7 +120,7 @@ def f(x):
     return 2 * x + 1
 ```
 
-Now that we\'ve *defined* this function, let\'s *call* it and check
+Now that we've *defined* this function, let's *call* it and check
 whether it does what we expect:
 
 ```{code-cell} ipython3
@@ -131,10 +131,10 @@ f(1)
 f(10)
 ```
 
-Here\'s a longer function, that computes the absolute value of a given
+Here's a longer function, that computes the absolute value of a given
 number.
 
-(Such a function already exists as a built-in, but let\'s write our own
+(Such a function already exists as a built-in, but let's write our own
 for the exercise.)
 
 ```{code-cell} ipython3
@@ -148,7 +148,7 @@ def new_abs_function(x):
     return abs_value
 ```
 
-Let\'s review the syntax here.
+Let's review the syntax here.
 
 -   `def` is a Python keyword used to start function definitions.
 -   `def new_abs_function(x):` indicates that the function is called
@@ -160,7 +160,7 @@ Let\'s review the syntax here.
 This whole function definition is read by the Python interpreter and
 stored in memory.
 
-Let\'s call it to check that it works:
+Let's call it to check that it works:
 
 ```{code-cell} ipython3
 print(new_abs_function(3))
@@ -234,7 +234,7 @@ returned by the function.
 
 Our function `generate_data()` is rather limited.
 
-Let\'s make it slightly more useful by giving it the ability to return
+Let's make it slightly more useful by giving it the ability to return
 either standard normals or uniform random variables on $(0, 1)$ as
 required.
 
@@ -329,7 +329,7 @@ argument to another function\*---as we did above.
 Recall that $n!$ is read as \"$n$ factorial\" and defined as
 $n! = n \times (n - 1) \times \cdots \times 2 \times 1$.
 
-There are functions to compute this in various modules, but let\'s write
+There are functions to compute this in various modules, but let's write
 our own version as an exercise.
 
 In particular, write a function `factorial` such that `factorial(n)`
@@ -371,7 +371,7 @@ Use no import besides `from numpy.random import uniform`.
 
 ### Exercise 1
 
-Here\'s one solution.
+Here's one solution.
 
 ```{code-cell} ipython3
 def factorial(n):
@@ -401,7 +401,7 @@ binomial_rv(10, 0.5)
 
 ### Exercise 3
 
-Here\'s a function for the first random device.
+Here's a function for the first random device.
 
 ```{code-cell} ipython3
 from numpy.random import uniform
@@ -423,7 +423,7 @@ def draw(k):  # pays if k consecutive successes in a sequence
 draw(3)
 ```
 
-Here\'s another function for the second random device.
+Here's another function for the second random device.
 
 ```{code-cell} ipython3
 def draw_new(k):  # pays if k successes in a sequence

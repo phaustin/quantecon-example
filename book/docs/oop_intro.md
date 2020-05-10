@@ -98,7 +98,7 @@ Consider the following expression
 '300' + 400
 ```
 
-Here we are mixing types, and it\'s unclear to Python whether the user
+Here we are mixing types, and it's unclear to Python whether the user
 wants to
 
 -   convert `'300'` to an integer and then add it to `400`, or
@@ -173,7 +173,7 @@ auxiliary information.
 
 They also have attributes that act like functions, called *methods*.
 
-These attributes are important, so let\'s discuss them in-depth.
+These attributes are important, so let's discuss them in-depth.
 
 ### Methods
 
@@ -219,7 +219,7 @@ x[0] = 'aa'  # Item assignment using square bracket notation
 x
 ```
 
-It doesn\'t look like there are any methods used here, but in fact the
+It doesn't look like there are any methods used here, but in fact the
 square bracket assignment notation is just a convenient interface to a
 method call.
 

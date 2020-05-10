@@ -26,7 +26,7 @@ In this lecture we will
 -   showcase some of its abilities
 -   compare it to some other languages.
 
-At this stage, it\'s **not** our intention that you try to replicate all
+At this stage, it's **not** our intention that you try to replicate all
 you see.
 
 We will work through what follows at a slow pace later in the lecture
@@ -35,7 +35,7 @@ series.
 Our only objective for this lecture is to give you some feel of what
 Python is, and what it can do.
 
-## What\'s Python?
+## What's Python?
 
 [Python](https://www.python.org) is a general-purpose programming
 language conceived in 1989 by Dutch programmer [Guido van
@@ -104,9 +104,9 @@ library for data analysis with Python has exploded, as seen here.
 ```
 
 Note that pandas takes off in 2012, which is the same year that we see
-Python\'s popularity begin to spike in the first figure.
+Python's popularity begin to spike in the first figure.
 
-Overall, it\'s clear that
+Overall, it's clear that
 
 -   Python is [one of the most popular programming languages
     worldwide](http://spectrum.ieee.org/computing/software/the-2017-top-programming-languages).
@@ -129,14 +129,14 @@ Other features of Python:
 
 ### Syntax and Design
 
-One nice feature of Python is its elegant syntax --- we\'ll see many
+One nice feature of Python is its elegant syntax --- we'll see many
 examples later on.
 
-Elegant code might sound superfluous but in fact it\'s highly beneficial
+Elegant code might sound superfluous but in fact it's highly beneficial
 because it makes the syntax easy to read and easy to remember.
 
 Remembering how to read from files, sort dictionaries and other such
-routine tasks means that you don\'t need to break your flow in order to
+routine tasks means that you don't need to break your flow in order to
 hunt down correct syntax.
 
 Closely related to elegant syntax is an elegant design.
@@ -152,7 +152,7 @@ productivity by cutting down on bugs and syntax errors.
 
 Python has become one of the core languages of scientific computing.
 
-It\'s either the dominant player or a major player in
+It's either the dominant player or a major player in
 
 -   [machine learning and data science](http://scikit-learn.org/stable/)
 -   [astronomy](http://www.astropy.org/)
@@ -177,7 +177,7 @@ excellent [NumPy](http://www.numpy.org/) library.
 NumPy provides the basic array data type plus some simple processing
 operations.
 
-For example, let\'s build some arrays
+For example, let's build some arrays
 
 ```{code-cell} ipython3
 import numpy as np                     # Load the library
@@ -187,13 +187,13 @@ b = np.cos(a)                          # Apply cosine to each element of a
 c = np.sin(a)                          # Apply sin to each element of a
 ```
 
-Now let\'s take the inner product
+Now let's take the inner product
 
 ```{code-cell} ipython3
 b @ c
 ```
 
-The number you see here might vary slightly but it\'s essentially zero.
+The number you see here might vary slightly but it's essentially zero.
 
 (For older versions of Python and NumPy you need to use the
 [np.dot](http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html)
@@ -203,7 +203,7 @@ The [SciPy](http://www.scipy.org) library is built on top of NumPy and
 provides additional functionality.
 
 (tuple_unpacking_example)=
-For example, let\'s calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is
+For example, let's calculate $\int_{-2}^2 \phi(z) dz$ where $\phi$ is
 the standard normal density.
 
 ```{code-cell} ipython3
@@ -269,7 +269,7 @@ Other graphics libraries include
 
 ### Symbolic Algebra
 
-It\'s useful to be able to manipulate symbolic expressions, as in
+It's useful to be able to manipulate symbolic expressions, as in
 Mathematica or Maple.
 
 The [SymPy](http://www.sympy.org/) library provides this functionality
@@ -321,7 +321,7 @@ that output to figures and so on.
 
 ### Statistics
 
-Python\'s data manipulation and statistics libraries have improved
+Python's data manipulation and statistics libraries have improved
 rapidly over the last few years.
 
 #### Pandas
@@ -331,7 +331,7 @@ One of the most popular libraries for working with data is
 
 Pandas is fast, efficient, flexible and well designed.
 
-Here\'s a simple example, using some dummy data generated with Numpy\'s
+Here's a simple example, using some dummy data generated with Numpy's
 excellent `random` functionality.
 
 ```{code-cell} ipython3
@@ -373,7 +373,7 @@ features include, among many other things:
 -   standard graph algorithms for analyzing networks
 -   plotting routines
 
-Here\'s some example code that generates and plots a random graph, with
+Here's some example code that generates and plots a random graph, with
 node color determined by shortest path length from a central node.
 
 ```{code-cell} ipython3
@@ -429,7 +429,7 @@ consider
 -   [Parallel computing through IPython
     clusters](http://ipython.org/ipython-doc/stable/parallel/parallel_demos.html).
 -   The [Starcluster](http://star.mit.edu/cluster/) interface to
-    Amazon\'s EC2.
+    Amazon's EC2.
 -   GPU programming through [PyCuda](https://wiki.tiker.net/PyCuda),
     [PyOpenCL](https://mathema.tician.de/software/pyopencl/),
     [Theano](http://deeplearning.net/software/theano/) or similar.
@@ -456,7 +456,7 @@ Some representative examples include
 
 -   Browse some Python projects on
     [GitHub](https://github.com/trending?l=python).
--   Read more about [Python\'s history and rise in
+-   Read more about [Python's history and rise in
     popularity](https://www.welcometothejungle.com/en/articles/btc-python-popular).
 -   Have a look at [some of the Jupyter
     notebooks](http://nbviewer.jupyter.org/) people have shared on
@@ -464,5 +464,5 @@ Some representative examples include
 -   Visit the [Python Package Index](https://pypi.org/).
 -   View some of the questions people are asking about Python on
     [Stackoverflow](http://stackoverflow.com/questions/tagged/python).
--   Keep up to date on what\'s happening in the Python community with
+-   Keep up to date on what's happening in the Python community with
     the [Python subreddit](https://www.reddit.com:443/r/Python/).

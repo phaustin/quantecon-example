@@ -26,13 +26,13 @@ Hey, we all used to do that.
 
 (OK, sometimes we still do that...)
 
-But once you start writing larger programs you\'ll need a better system.
+But once you start writing larger programs you'll need a better system.
 
 Debugging tools for Python vary across platforms, IDEs and editors.
 
-Here we\'ll focus on Jupyter and leave you to explore other settings.
+Here we'll focus on Jupyter and leave you to explore other settings.
 
-We\'ll need the following imports
+We'll need the following imports
 
 ```{code-cell} ipython3
 :tags: [remove-output]
@@ -46,7 +46,7 @@ import matplotlib.pyplot as plt
 
 ### The `debug` Magic
 
-Let\'s consider a simple (and rather contrived) example
+Let's consider a simple (and rather contrived) example
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
@@ -63,7 +63,7 @@ plot_log()  # Call the function, generate plot
 This code is intended to plot the `log` function over the interval
 $[1, 2]$.
 
-But there\'s an error here: `plt.subplots(2, 1)` should be just
+But there's an error here: `plt.subplots(2, 1)` should be just
 `plt.subplots()`.
 
 (The call `plt.subplots(2, 1)` returns a NumPy array containing two axes
@@ -75,9 +75,9 @@ The traceback shows that the error occurs at the method call
 The error occurs because we have mistakenly made `ax` a NumPy array, and
 a NumPy array has no `plot` method.
 
-But let\'s pretend that we don\'t understand this for the moment.
+But let's pretend that we don't understand this for the moment.
 
-We might suspect there\'s something wrong with `ax` but when we try to
+We might suspect there's something wrong with `ax` but when we try to
 investigate this object, we get the following exception:
 
 ```{code-cell} ipython3
@@ -89,7 +89,7 @@ ax
 The problem is that `ax` was defined inside `plot_log()`, and the name
 is lost once that function terminates.
 
-Let\'s try doing it a different way.
+Let's try doing it a different way.
 
 We run the first cell block again, generating the same error
 
@@ -122,7 +122,7 @@ ipdb>
 Now we can investigate the value of our variables at this point in the
 program, step forward through the code, etc.
 
-For example, here we simply type the name `ax` to see what\'s happening
+For example, here we simply type the name `ax` to see what's happening
 with this object:
 
 ```{code-block} none
@@ -131,7 +131,7 @@ array([<matplotlib.axes.AxesSubplot object at 0x290f5d0>,
        <matplotlib.axes.AxesSubplot object at 0x2930810>], dtype=object)
 ```
 
-It\'s now very clear that `ax` is an array, which clarifies the source
+It's now very clear that `ax` is an array, which clarifies the source
 of the problem.
 
 To find out what else you can do from inside `ipdb` (or `pdb`), use the
@@ -178,10 +178,10 @@ def plot_log():
 plot_log()
 ```
 
-Here the original problem is fixed, but we\'ve accidentally written
+Here the original problem is fixed, but we've accidentally written
 `np.logspace(1, 2, 10)` instead of `np.linspace(1, 2, 10)`.
 
-Now there won\'t be any exception, but the plot won\'t look right.
+Now there won't be any exception, but the plot won't look right.
 
 To investigate, it would be helpful if we could inspect variables like
 `x` during execution of the function.
@@ -200,7 +200,7 @@ def plot_log():
 plot_log()
 ```
 
-Now let\'s run the script, and investigate via the debugger
+Now let's run the script, and investigate via the debugger
 
 ```{code-block} none
 > <ipython-input-6-a188074383b7>(6)plot_log()

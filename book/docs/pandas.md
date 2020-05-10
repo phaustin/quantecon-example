@@ -30,7 +30,7 @@ analysis tools for Python.
 Its popularity has surged in recent years, coincident with the rise of
 fields such as data science and machine learning.
 
-Here\'s a popularity comparison over time against STATA, SAS, and
+Here's a popularity comparison over time against STATA, SAS, and
 [dplyr](https://dplyr.tidyverse.org/) courtesy of Stack Overflow Trends
 
 ```{figure} /_static/lecture_specific/pandas/pandas_vs_rest.png
@@ -75,7 +75,7 @@ collection of observations on a single variable.
 
 A `DataFrame` is an object for storing related columns of data.
 
-Let\'s start with `Series`
+Let's start with `Series`
 
 ```{code-cell} ipython3
 s = pd.Series(np.random.randn(4), name='daily returns')
@@ -143,18 +143,18 @@ naturally organized into rows and columns, often with descriptive
 indexes for individual rows and individual columns.
 
 ```{only} html
-Let\'s look at an example that reads data from the CSV file
+Let's look at an example that reads data from the CSV file
 `pandas/data/test_pwt.csv` that can be downloaded
 [here](https://lectures.quantecon.org/_downloads/pandas/data/test_pwt.csv).
 ```
 
 ```{only} latex
-Let\'s look at an example that reads data from the CSV file
+Let's look at an example that reads data from the CSV file
 `pandas/data/test_pwt.csv` and can be downloaded
 [here](https://lectures.quantecon.org/_downloads/pandas/data/test_pwt.csv).
 ```
 
-Here\'s the content of `test_pwt.csv`
+Here's the content of `test_pwt.csv`
 
 ```{code-block} none
 "country","country isocode","year","POP","XRAT","tcgdp","cc","cg"
@@ -209,7 +209,7 @@ To select rows and columns using a mixture of integers and labels, the
 df.loc[df.index[2:5], ['country', 'tcgdp']]
 ```
 
-Let\'s imagine that we\'re only interested in population (`POP`) and
+Let's imagine that we're only interested in population (`POP`) and
 total GDP (`tcgdp`).
 
 One way to strip the data frame `df` down to only these variables is to
@@ -231,21 +231,21 @@ df = df.set_index('country')
 df
 ```
 
-Let\'s give the columns slightly better names
+Let's give the columns slightly better names
 
 ```{code-cell} ipython3
 df.columns = 'population', 'total GDP'
 df
 ```
 
-Population is in thousands, let\'s revert to single units
+Population is in thousands, let's revert to single units
 
 ```{code-cell} ipython3
 df['population'] = df['population'] * 1e3
 df
 ```
 
-Next, we\'re going to add a column showing real GDP per capita,
+Next, we're going to add a column showing real GDP per capita,
 multiplying by 1,000,000 as we go because total GDP is in millions
 
 ```{code-cell} ipython3
@@ -267,7 +267,7 @@ plt.show()
 ```
 
 At the moment the data frame is ordered alphabetically on the
-countries---let\'s change it to GDP per capita
+countries---let's change it to GDP per capita
 
 ```{code-cell} ipython3
 df = df.sort_values(by='GDP percap', ascending=False)
@@ -327,14 +327,14 @@ To begin, try the following code on your computer
 r = requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')
 ```
 
-If there\'s no error message, then the call has succeeded.
+If there's no error message, then the call has succeeded.
 
 If you do get an error, then there are two likely causes
 
-1.  You are not connected to the Internet --- hopefully, this isn\'t
+1.  You are not connected to the Internet --- hopefully, this isn't
     the case.
 2.  Your machine is accessing the Internet through a proxy server, and
-    Python isn\'t aware of this.
+    Python isn't aware of this.
 
 In the second case, you can either
 
@@ -363,7 +363,7 @@ source[2]
 We could now write some additional code to parse this text and store it
 as an array.
 
-But this is unnecessary --- pandas\' `read_csv` function can handle
+But this is unnecessary --- pandas' `read_csv` function can handle
 the task for us.
 
 We use `parse_dates=True` so that pandas recognizes our dates column,
@@ -416,7 +416,7 @@ While some sources require an access key, many of the most important
 [EUROSTAT](https://ec.europa.eu/eurostat/data/database) and the World
 Bank) are free to use.
 
-For now let\'s work through one example of downloading and plotting data
+For now let's work through one example of downloading and plotting data
 --- this time from the World Bank.
 
 The World Bank [collects and organizes
@@ -424,7 +424,7 @@ data](http://data.worldbank.org/indicator) on a huge range of
 indicators.
 
 For example,
-[here\'s](http://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/countries)
+[here's](http://data.worldbank.org/indicator/GC.DOD.TOTL.GD.ZS/countries)
 some data on government debt as a ratio to GDP.
 
 The next code example fetches the data for you and plots time series for
@@ -478,7 +478,7 @@ ticker_list = {'INTC': 'Intel',
                'PTR': 'PetroChina'}
 ```
 
-Here\'s the first part of the program
+Here's the first part of the program
 
 ```{code-cell} ipython3
 def read_data(ticker_list,

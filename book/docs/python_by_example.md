@@ -15,7 +15,7 @@ kernelspec:
 
 ## Overview
 
-We\'re now ready to start learning the Python language itself.
+We're now ready to start learning the Python language itself.
 
 In this lecture, we will write and then pick apart small Python
 programs.
@@ -42,7 +42,7 @@ this:
 (Here $t$ is on the horizontal axis and $\epsilon_t$ is on the vertical
 axis.)
 
-We\'ll do this in several different ways, each time learning something
+We'll do this in several different ways, each time learning something
 more about Python.
 
 We run the following command first, which helps ensure that plots appear
@@ -83,7 +83,7 @@ from myst_nb import glue
 glue("test_program_1_updated", fig, display=False)
 ```
 
-Let\'s break this program down and see how it works.
+Let's break this program down and see how it works.
 
 (import)=
 
@@ -103,7 +103,7 @@ favorite Python package for tasks like
 After `import numpy as np` we have access to these attributes via the
 syntax `np.attribute`.
 
-Here\'s two more examples
+Here's two more examples
 
 ```{code-cell} ipython3
 np.sqrt(4)
@@ -129,7 +129,7 @@ standard.
 Python programs typically require several import statements.
 
 The reason is that the core language is deliberately kept small, so that
-it\'s easy to learn and maintain.
+it's easy to learn and maintain.
 
 When you want to do something interesting with Python, you almost always
 need to import additional functionality.
@@ -151,7 +151,7 @@ In fact, a package is just a directory containing
 In fact, you can find and explore the directory for NumPy on your
 computer easily enough if you look around.
 
-On this machine, it\'s located in
+On this machine, it's located in
 
 ```{code-block} none
 anaconda3/lib/python3.7/site-packages/numpy
@@ -177,7 +177,7 @@ import numpy as np
 np.sqrt(4)
 ```
 
-Here\'s another way to access NumPy\'s square root function
+Here's another way to access NumPy's square root function
 
 ```{code-cell} ipython3
 from numpy import sqrt
@@ -192,7 +192,7 @@ The advantage is less typing if we use `sqrt` often in our code.
 The disadvantage is that, in a long program, these two lines might be
 separated by many other lines.
 
-Then it\'s harder for readers to know where `sqrt` came from, should
+Then it's harder for readers to know where `sqrt` came from, should
 they wish to.
 
 ### Random Draws
@@ -216,7 +216,7 @@ below.
 
 ## Alternative Implementations
 
-Let\'s try writing some alternative versions of
+Let's try writing some alternative versions of
 {ref}`our first program <ourfirstprog>`, which
 plotted IID draws from the normal distribution.
 
@@ -228,7 +228,7 @@ semantics in a familiar setting.
 
 ### A Version with a For Loop
 
-Here\'s a version that illustrates `for` loops and Python lists.
+Here's a version that illustrates `for` loops and Python lists.
 
 (firstloopprog)=
 
@@ -250,13 +250,13 @@ In brief,
 -   The next line creates an empty *list* called `ϵ_values` that will
     store the $\epsilon_t$ values as we generate them.
 -   The statement `# empty list` is a *comment*, and is ignored by
-    Python\'s interpreter.
+    Python's interpreter.
 -   The next three lines are the `for` loop, which repeatedly draws a
     new random number $\epsilon_t$ and appends it to the end of the list
     `ϵ_values`.
 -   The last two lines generate the plot and display it to the user.
 
-Let\'s study some parts of this program in more detail.
+Let's study some parts of this program in more detail.
 
 (lists_ref)=
 
@@ -293,10 +293,10 @@ x.append(2.5)
 x
 ```
 
-Here `append()` is what\'s called a *method*, which is a function
+Here `append()` is what's called a *method*, which is a function
 \"attached to\" an object---in this case, the list `x`.
 
-We\'ll learn all about methods later on, but just to give you some idea,
+We'll learn all about methods later on, but just to give you some idea,
 
 -   Python objects such as lists, strings, etc. all have methods that
     are used to manipulate the data contained in the object.
@@ -333,7 +333,7 @@ x[1]   # second element of x
 
 ### The For Loop
 
-Now let\'s consider the `for` loop from
+Now let's consider the `for` loop from
 {ref}`the program above <firstloopprog>`, which
 was
 
@@ -355,7 +355,7 @@ Unlike most other languages, Python knows the extent of the code block
 In our program, indentation decreases after line `ϵ_values.append(e)`,
 telling Python that this line marks the lower limit of the code block.
 
-More on indentation below---for now, let\'s look at another example of
+More on indentation below---for now, let's look at another example of
 a `for` loop
 
 ```{code-cell} ipython3
@@ -381,7 +381,7 @@ The Python interpreter performs the following:
 -   For each element of the `sequence`, it \"binds\" the name
     `variable_name` to that element and then executes the code block.
 
-The `sequence` object can in fact be a very general object, as we\'ll
+The `sequence` object can in fact be a very general object, as we'll
 see soon enough.
 
 ### A Comment on Indentation
@@ -411,13 +411,13 @@ remember:
     -   `while x < 100:`
     -   etc., etc.
 -   All lines in a code block **must have the same amount of indentation**.
--   The Python standard is 4 spaces, and that\'s what you should use.
+-   The Python standard is 4 spaces, and that's what you should use.
 
 ### While Loops
 
 The `for` loop is the most common technique for iteration in Python.
 
-But, for the purpose of illustration, let\'s modify
+But, for the purpose of illustration, let's modify
 {ref}`the program above <firstloopprog>` to use
 a `while` loop instead.
 
@@ -442,7 +442,7 @@ Note that
 
 ## Another Application
 
-Let\'s do one more application before we turn to exercises.
+Let's do one more application before we turn to exercises.
 
 In this application, we plot the balance of a bank account over time.
 
@@ -556,7 +556,7 @@ branching and conditions.
 
 In Python, conditions are usually implemented with if--else syntax.
 
-Here\'s an example, that prints -1 for each negative number in an array
+Here's an example, that prints -1 for each negative number in an array
 and 1 for each nonnegative number
 
 ```{code-cell} ipython3
@@ -580,7 +580,7 @@ Replace this existing function with an if--else condition.
 
 ### Exercise 5
 
-Here\'s a harder exercise, that takes some thought and planning.
+Here's a harder exercise, that takes some thought and planning.
 
 The task is to compute an approximation to $\pi$ using [Monte
 Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method).
@@ -605,7 +605,7 @@ Your hints are as follows:
 
 ### Exercise 1
 
-Here\'s one solution.
+Here's one solution.
 
 ```{code-cell} ipython3
 α = 0.9
@@ -639,7 +639,7 @@ plt.show()
 
 ### Exercise 3
 
-Here\'s one solution:
+Here's one solution:
 
 ```{code-cell} ipython3
 α = 0.9
@@ -656,7 +656,7 @@ plt.show()
 
 ### Exercise 4
 
-Here\'s one way:
+Here's one way:
 
 ```{code-cell} ipython3
 α = 0.9
@@ -675,7 +675,7 @@ plt.plot(x)
 plt.show()
 ```
 
-Here\'s a shorter way to write the same thing:
+Here's a shorter way to write the same thing:
 
 ```{code-cell} ipython3
 α = 0.9

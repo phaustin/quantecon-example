@@ -18,7 +18,7 @@ kernelspec:
 We have covered a lot of material quite quickly, with a focus on
 examples.
 
-Now let\'s cover some core features of Python in a more systematic way.
+Now let's cover some core features of Python in a more systematic way.
 
 This approach is less exciting but helps clear up some details.
 
@@ -42,11 +42,11 @@ In general, floats are more informative but arithmetic operations on
 integers are faster and more accurate.
 
 Python provides numerous other built-in Python data types, some of which
-we\'ve already met
+we've already met
 
 -   strings, lists, etc.
 
-Let\'s learn a bit more about them.
+Let's learn a bit more about them.
 
 ### Primitive Data Types
 
@@ -118,7 +118,7 @@ type(x)
 Python has several basic types for storing collections of (possibly
 heterogeneous) data.
 
-We\'ve {ref}`already discussed lists <lists_ref>`.
+We've {ref}`already discussed lists <lists_ref>`.
 
 A related data type is **tuples**, which are \"immutable\" lists
 
@@ -155,7 +155,7 @@ x = (1, 2)
 x[0] = 10
 ```
 
-We\'ll say more about the role of mutable and immutable data a bit
+We'll say more about the role of mutable and immutable data a bit
 later.
 
 Tuples (and lists) can be \"unpacked\" as follows
@@ -170,14 +170,14 @@ x
 y
 ```
 
-You\'ve actually
+You've actually
 {ref}`seen an example of this <tuple_unpacking_example>` already.
 
-Tuple unpacking is convenient and we\'ll use it often.
+Tuple unpacking is convenient and we'll use it often.
 
 #### Slice Notation
 
-To access multiple elements of a list or tuple, you can use Python\'s
+To access multiple elements of a list or tuple, you can use Python's
 slice notation.
 
 For example,
@@ -256,7 +256,7 @@ s3
 
 ## Input and Output
 
-Let\'s briefly review reading and writing to text files, starting with
+Let's briefly review reading and writing to text files, starting with
 writing
 
 ```{code-cell} ipython3
@@ -271,7 +271,7 @@ Here
 -   The built-in function `open()` creates a file object for writing to.
 -   Both `write()` and `close()` are methods of file objects.
 
-Where is this file that we\'ve created?
+Where is this file that we've created?
 
 Recall that Python maintains a concept of the present working directory
 (pwd) that can be located from with Jupyter or IPython via
@@ -313,7 +313,7 @@ f = open('insert_full_path_to_file/newfile.txt', 'r')
 One of the most important tasks in computing is stepping through a
 sequence of data and performing a given action.
 
-One of Python\'s strengths is its simple, flexible interface to this
+One of Python's strengths is its simple, flexible interface to this
 kind of iteration via the `for` loop.
 
 ### Looping over Different Objects
@@ -321,7 +321,7 @@ kind of iteration via the `for` loop.
 Many Python objects are \"iterable\", in the sense that they can be
 looped over.
 
-To give an example, let\'s write the file `us_cities.txt`,
+To give an example, let's write the file `us_cities.txt`,
 which lists US cities and their population, to the present working
 directory.
 
@@ -371,7 +371,7 @@ The interesting part of this program for us is line 2, which shows that
 
 This leads to the clean, convenient syntax shown in our program.
 
-Many other kinds of objects are iterable, and we\'ll discuss some of
+Many other kinds of objects are iterable, and we'll discuss some of
 them later on.
 
 ### Looping without Indices
@@ -448,7 +448,7 @@ plurals = [animal + 's' for animal in animals]
 plurals
 ```
 
-Here\'s another example
+Here's another example
 
 ```{code-cell} ipython3
 range(8)
@@ -513,7 +513,7 @@ x = 'yes' if [] else 'no'
 x
 ```
 
-What\'s going on here?
+What's going on here?
 
 The rule is:
 
@@ -557,7 +557,7 @@ Remember
 
 ## More Functions
 
-Let\'s talk a bit more about functions, which are all important for good
+Let's talk a bit more about functions, which are all important for good
 programming style.
 
 ### The Flexibility of Python Functions
@@ -691,7 +691,7 @@ In a {ref}`previous lecture <python_by_example>`, you came across the statement
 plt.plot(x, 'b-', label="white noise")
 ```
 
-In this call to Matplotlib\'s `plot` function, notice that the last
+In this call to Matplotlib's `plot` function, notice that the last
 argument is passed in `name=argument` syntax.
 
 This is called a *keyword argument*, with `label` being the keyword.
@@ -703,7 +703,7 @@ meaning is determined by order
     `plot('b-', x, label="white noise")`
 
 Keyword arguments are particularly useful when a function has a lot of
-arguments, in which case it\'s hard to remember the right order.
+arguments, in which case it's hard to remember the right order.
 
 You can adopt keyword arguments in user-defined functions with no
 difficulty.
@@ -736,7 +736,7 @@ at the prompt.
 Among other things, Python strongly favors consistency in programming
 style.
 
-We\'ve all heard the saying about consistency and little minds.
+We've all heard the saying about consistency and little minds.
 
 In programming, as in mathematics, the opposite is true
 
@@ -747,7 +747,7 @@ In programming, as in mathematics, the opposite is true
 In Python, the standard style is set out in
 [PEP8](https://www.python.org/dev/peps/pep-0008/).
 
-(Occasionally we\'ll deviate from PEP8 in these lectures to better match
+(Occasionally we'll deviate from PEP8 in these lectures to better match
 mathematical notation)
 
 ## Exercises
@@ -821,7 +821,7 @@ element of `seq_b`, else `False`.
 When we cover the numerical libraries, we will see they include many
 alternatives for interpolation and function approximation.
 
-Nevertheless, let\'s write our own function approximation routine as an
+Nevertheless, let's write our own function approximation routine as an
 exercise.
 
 In particular, without using any imports, write a function `linapprox`
@@ -860,7 +860,7 @@ for i in range(n):
 
 #### Part 1 Solution:
 
-Here\'s one possible solution
+Here's one possible solution
 
 ```{code-cell} ipython3
 x_vals = [1, 2, 3]
@@ -903,7 +903,7 @@ sum([1 for x in range(100) if x % 2 == 0])
 
 #### Part 3 Solution
 
-Here\'s one possibility
+Here's one possibility
 
 ```{code-cell} ipython3
 pairs = ((2, 5), (4, 2), (9, 8), (12, 10))
@@ -923,7 +923,7 @@ p(1, (2, 4))
 
 ### Exercise 3
 
-Here\'s one solution:
+Here's one solution:
 
 ```{code-cell} ipython3
 def f(string):
@@ -947,7 +947,7 @@ count_uppercase_chars('The Rain in Spain')
 
 ### Exercise 4
 
-Here\'s a solution:
+Here's a solution:
 
 ```{code-cell} ipython3
 def f(seq_a, seq_b):
@@ -1011,7 +1011,7 @@ def linapprox(f, a, b, n, x):
 
 ### Exercise 6
 
-Here\'s one solution.
+Here's one solution.
 
 ```{code-cell} ipython3
 n = 100

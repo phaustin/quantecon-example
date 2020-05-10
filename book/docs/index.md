@@ -34,7 +34,7 @@ To install Anaconda, follow the instructions in {ref}`this lecture <getting_star
 The most common source of problems for our
 readers is that their Anaconda distribution is not up to date.
 
-[Here\'s a useful article](https://www.anaconda.com/keeping-anaconda-date/) on how to
+[Here's a useful article](https://www.anaconda.com/keeping-anaconda-date/) on how to
 update Anaconda.
 
 Another option is to simply remove Anaconda and reinstall.

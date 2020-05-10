@@ -34,9 +34,9 @@ libraries such as [LAPACK](https://en.wikipedia.org/wiki/LAPACK),
 [BLAS](https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms),
 etc.
 
-It\'s not really necessary to \"learn\" SciPy as a whole.
+It's not really necessary to \"learn\" SciPy as a whole.
 
-A more common approach is to get some idea of what\'s in the library and
+A more common approach is to get some idea of what's in the library and
 then look up
 [documentation](http://docs.scipy.org/doc/scipy/reference/index.html) as
 required.
@@ -60,7 +60,7 @@ from numpy.fft import fft, ifft
 from numpy.lib.scimath import *
 ```
 
-However, it\'s more common and better practice to use NumPy
+However, it's more common and better practice to use NumPy
 functionality explicitly
 
 ```{code-cell} ipython3
@@ -73,7 +73,7 @@ What is useful in SciPy is the functionality in its sub-packages
 
 -   `scipy.optimize`, `scipy.integrate`, `scipy.stats`, etc.
 
-Let\'s explore some of the major sub-packages.
+Let's explore some of the major sub-packages.
 
 ## Statistics
 
@@ -109,7 +109,7 @@ For this, we can use `scipy.stats`, which provides all of this
 functionality as well as random number generation in a single consistent
 interface.
 
-Here\'s an example of usage
+Here's an example of usage
 
 ```{code-cell} ipython3
 from scipy.stats import beta
@@ -218,7 +218,7 @@ plt.show()
 
 The unique root is approximately 0.408.
 
-Let\'s consider some numerical techniques for finding roots.
+Let's consider some numerical techniques for finding roots.
 
 ### Bisection
 
@@ -228,16 +228,16 @@ One of the most common algorithms for numerical root-finding is
 To understand the idea, recall the well-known game where
 
 -   Player A thinks of a secret number between 1 and 100
--   Player B asks if it\'s less than 50
+-   Player B asks if it's less than 50
 
-    > -   If yes, B asks if it\'s less than 25
-    > -   If no, B asks if it\'s less than 75
+    > -   If yes, B asks if it's less than 25
+    > -   If no, B asks if it's less than 75
 
 And so on.
 
 This is bisection.
 
-Here\'s a simplistic implementation of the algorithm in Python.
+Here's a simplistic implementation of the algorithm in Python.
 
 It works for all sufficiently well behaved increasing continuous
 functions with $f(a) < 0 < f(b)$
@@ -262,7 +262,7 @@ def bisect(f, a, b, tol=10e-5):
     return 0.5 * (upper + lower)
 ```
 
-Let\'s test it using the function $f$ defined in
+Let's test it using the function $f$ defined in
 {math:numref}`root_f`
 
 ```{code-cell} ipython3
@@ -271,7 +271,7 @@ bisect(f, 0, 1)
 
 Not surprisingly, SciPy provides its own bisection function.
 
-Let\'s test it using the same function $f$ defined in
+Let's test it using the same function $f$ defined in
 {math:numref}`root_f`
 
 ```{code-cell} ipython3
@@ -290,7 +290,7 @@ In SciPy this algorithm is implemented by `scipy.optimize.newton`.
 Unlike bisection, the Newton-Raphson method uses local slope information
 in an attempt to increase the speed of convergence.
 
-Let\'s investigate this using the same function $f$ defined above.
+Let's investigate this using the same function $f$ defined above.
 
 With a suitable initial condition for the search we get convergence:
 
@@ -366,7 +366,7 @@ from scipy.optimize import fixed_point
 fixed_point(lambda x: x**2, 10.0)  # 10.0 is an initial guess
 ```
 
-If you don\'t get good results, you can always switch back to the
+If you don't get good results, you can always switch back to the
 `brentq` root finder, since the fixed point of a function $f$ is the
 root of $g(x) := x - f(x)$.
 
@@ -383,7 +383,7 @@ interior optima correspond to roots of the first derivative.
 The speed/robustness trade-off described above is present with numerical
 optimization too.
 
-Unless you have some prior information you can exploit, it\'s usually
+Unless you have some prior information you can exploit, it's usually
 best to use hybrid methods.
 
 For constrained, univariate (i.e., scalar) minimization, a good hybrid
@@ -473,7 +473,7 @@ Test it on the function {math:numref}`root_f`.
 
 ### Exercise 1
 
-Here\'s a reasonable solution:
+Here's a reasonable solution:
 
 ```{code-cell} ipython3
 def bisect(f, a, b, tol=10e-5):

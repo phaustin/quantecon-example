@@ -13,7 +13,7 @@ kernelspec:
 
 # Python for Scientific Computing
 
-In addition to what\'s in Anaconda, this lecture will need the following
+In addition to what's in Anaconda, this lecture will need the following
 libraries:
 
 ```{code-cell} ipython3
@@ -45,7 +45,7 @@ Python, addressing the following questions:
 
 ## Scientific Libraries
 
-Let\'s briefly review Python\'s scientific libraries, starting with why
+Let's briefly review Python's scientific libraries, starting with why
 we need them.
 
 ### The Role of Scientific Libraries
@@ -53,14 +53,14 @@ we need them.
 One obvious reason we use scientific libraries is because they implement
 routines we want to use.
 
-For example, it\'s almost always better to use an existing routine for
+For example, it's almost always better to use an existing routine for
 root finding than to write a new one from scratch.
 
 (For standard algorithms, efficiency is maximized if the community can
 coordinate on a common set of implementations, written by experts and
 tuned by users to be as fast and robust as possible.)
 
-But this is not the only reason that we use Python\'s scientific
+But this is not the only reason that we use Python's scientific
 libraries.
 
 Another is that pure Python, while flexible and elegant, is not fast.
@@ -68,10 +68,10 @@ Another is that pure Python, while flexible and elegant, is not fast.
 So we need libraries that are designed to accelerate execution of Python
 code.
 
-As we\'ll see below, there are now Python libraries that can do this
+As we'll see below, there are now Python libraries that can do this
 extremely well.
 
-### Python\'s Scientific Ecosystem
+### Python's Scientific Ecosystem
 
 In terms of popularity, the big four in the world of scientific Python
 libraries are
@@ -81,14 +81,14 @@ libraries are
 -   Matplotlib
 -   Pandas
 
-For us, there\'s another (relatively new) library that will also be
+For us, there's another (relatively new) library that will also be
 essential for numerical computing:
 
 -   Numba
 
-Over the next few lectures we\'ll see how to use these libraries.
+Over the next few lectures we'll see how to use these libraries.
 
-But first, let\'s quickly review how they fit together.
+But first, let's quickly review how they fit together.
 
 -   NumPy forms the foundations by providing a basic array data type
     (think of vectors and matrices) and functions for acting on these
@@ -100,12 +100,12 @@ But first, let\'s quickly review how they fit together.
     data stored in NumPy arrays.
 -   Pandas provides types and functions for empirical work (e.g.,
     manipulating data).
--   Numba accelerates execution via JIT compilation --- we\'ll learn
+-   Numba accelerates execution via JIT compilation --- we'll learn
     about this soon.
 
 ## The Need for Speed
 
-Now let\'s discuss execution speed.
+Now let's discuss execution speed.
 
 Higher-level languages like Python are optimized for humans.
 
@@ -141,12 +141,12 @@ Hence it is far more efficient to write most of our code in a high
 productivity language like Python.
 
 Second, even for those lines of code that *are* time-critical, we can
-now achieve the same speed as C or Fortran using Python\'s scientific
+now achieve the same speed as C or Fortran using Python's scientific
 libraries.
 
 ### Where are the Bottlenecks?
 
-Before we learn how to do this, let\'s try to understand why plain
+Before we learn how to do this, let's try to understand why plain
 vanilla Python is slower than C or Fortran.
 
 This will, in turn, help us figure out how to speed things up.
@@ -217,7 +217,7 @@ Hence, the meaning of addition here is completely unambiguous.
 
 Another drag on speed for high-level languages is data access.
 
-To illustrate, let\'s consider the problem of summing some data ---
+To illustrate, let's consider the problem of summing some data ---
 say, a collection of integers.
 
 #### Summing with Compiled Code
@@ -257,10 +257,10 @@ themselves.
 
 This is a considerable drag on speed.
 
-In fact, it\'s generally true that memory traffic is a major culprit
+In fact, it's generally true that memory traffic is a major culprit
 when it comes to slow execution.
 
-Let\'s look at some ways around these problems.
+Let's look at some ways around these problems.
 
 ## Vectorization
 
@@ -284,11 +284,11 @@ extensively.
 Vectorization can greatly accelerate many numerical computations (but
 not all, as we shall see).
 
-Let\'s see how vectorization works in Python, using NumPy.
+Let's see how vectorization works in Python, using NumPy.
 
 ### Operations on Arrays
 
-First, let\'s run some imports
+First, let's run some imports
 
 ```{code-cell} ipython3
 import random
@@ -296,7 +296,7 @@ import numpy as np
 import quantecon as qe
 ```
 
-Next let\'s try some non-vectorized code, which uses a native Python
+Next let's try some non-vectorized code, which uses a native Python
 loop to generate, square and then sum a large number of random
 variables:
 
@@ -373,7 +373,7 @@ By exploiting ufuncs, many operations can be vectorized.
 For example, consider the problem of maximizing a function $f$ of two
 variables $(x,y)$ over the square $[-a, a] \times [-a, a]$.
 
-For $f$ and $a$ let\'s choose
+For $f$ and $a$ let's choose
 
 $$
 f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
@@ -381,7 +381,7 @@ f(x,y) = \frac{\cos(x^2 + y^2)}{1 + x^2 + y^2}
 a = 3
 $$
 
-Here\'s a plot of $f$
+Here's a plot of $f$
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
@@ -411,7 +411,7 @@ ax.set_ylabel('$y$', fontsize=14)
 plt.show()
 ```
 
-To maximize it, we\'re going to use a naive grid search:
+To maximize it, we're going to use a naive grid search:
 
 1.  Evaluate $f$ for all $(x,y)$ in a grid on the square.
 2.  Return the maximum of observed values.
@@ -422,7 +422,7 @@ The grid will be
 grid = np.linspace(-3, 3, 1000)
 ```
 
-Here\'s a non-vectorized version that uses Python loops.
+Here's a non-vectorized version that uses Python loops.
 
 ```{code-cell} ipython3
 %%time
@@ -436,7 +436,7 @@ for x in grid:
             m = z
 ```
 
-And here\'s a vectorized version
+And here's a vectorized version
 
 ```{code-cell} ipython3
 %%time
@@ -449,7 +449,7 @@ In the vectorized version, all the looping takes place in compiled code.
 
 As you can see, the second version is **much** faster.
 
-(We\'ll make it even faster again later on, using more scientific
+(We'll make it even faster again later on, using more scientific
 programming tricks.)
 
 (numba-p_c_vectorization)=
@@ -458,7 +458,7 @@ programming tricks.)
 
 At its best, vectorization yields fast, simple code.
 
-However, it\'s not without disadvantages.
+However, it's not without disadvantages.
 
 One issue is that it can be highly memory-intensive.
 
@@ -482,4 +482,4 @@ the main problems with vectorization listed above.
 It does so through something called **just in time (JIT) compilation**,
 which can generate extremely fast and efficient code.
 
-We\'ll learn how to use Numba [soon](numba).
+We'll learn how to use Numba [soon](numba).

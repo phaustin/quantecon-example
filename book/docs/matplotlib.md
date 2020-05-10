@@ -15,7 +15,7 @@ kernelspec:
 
 ## Overview
 
-We\'ve already generated quite a few figures in these lectures using
+We've already generated quite a few figures in these lectures using
 [Matplotlib](http://matplotlib.org/).
 
 Matplotlib is an outstanding graphics library, designed for scientific
@@ -27,7 +27,7 @@ computing, with
 -   fine-grained control over all aspects of presentation
 -   animation, etc.
 
-### Matplotlib\'s Split Personality
+### Matplotlib's Split Personality
 
 Matplotlib is unusual in that it offers two different interfaces to
 plotting.
@@ -39,13 +39,13 @@ The other is a more \"Pythonic\" object-oriented API.
 
 For reasons described below, we recommend that you use the second API.
 
-But first, let\'s discuss the difference.
+But first, let's discuss the difference.
 
 ## The APIs
 
 ### The MATLAB-style API
 
-Here\'s the kind of easy example you might find in introductory
+Here's the kind of easy example you might find in introductory
 treatments
 
 ```{code-cell} ipython3
@@ -73,7 +73,7 @@ This leads us to the alternative, object-oriented Matplotlib API.
 
 ### The Object-Oriented API
 
-Here\'s the code corresponding to the preceding figure using the
+Here's the code corresponding to the preceding figure using the
 object-oriented API
 
 ```{code-cell} ipython3
@@ -90,14 +90,14 @@ Here the call `fig, ax = plt.subplots()` returns a pair, where
 
 The `plot()` function is actually a method of `ax`.
 
-While there\'s a bit more typing, the more explicit use of objects gives
+While there's a bit more typing, the more explicit use of objects gives
 us better control.
 
 This will become more clear as we go along.
 
 ### Tweaks
 
-Here we\'ve changed the line to red and added a legend
+Here we've changed the line to red and added a legend
 
 ```{code-cell} ipython3
 fig, ax = plt.subplots()
@@ -106,7 +106,7 @@ ax.legend()
 plt.show()
 ```
 
-We\'ve also used `alpha` to make the line slightly transparent---which
+We've also used `alpha` to make the line slightly transparent---which
 makes it look smoother.
 
 The location of the legend can be changed by replacing `ax.legend()`
@@ -148,9 +148,9 @@ We mention just a few.
 
 ### Multiple Plots on One Axis
 
-It\'s straightforward to generate multiple plots on the same axes.
+It's straightforward to generate multiple plots on the same axes.
 
-Here\'s an example that randomly generates three normal densities and
+Here's an example that randomly generates three normal densities and
 adds a label with their mean
 
 ```{code-cell} ipython3
@@ -172,7 +172,7 @@ plt.show()
 
 Sometimes we want multiple subplots in one figure.
 
-Here\'s an example that generates 6 histograms
+Here's an example that generates 6 histograms
 
 ```{code-cell} ipython3
 num_rows, num_cols = 3, 2
@@ -225,11 +225,11 @@ Perhaps you will find a set of customizations that you regularly use.
 Suppose we usually prefer our axes to go through the origin, and to have
 a grid.
 
-Here\'s a nice example from [Matthew Doty](https://github.com/xcthulhu)
+Here's a nice example from [Matthew Doty](https://github.com/xcthulhu)
 of how the object-oriented API can be used to build a custom `subplots`
 function that implements these changes.
 
-Read carefully through the code and see if you can follow what\'s going
+Read carefully through the code and see if you can follow what's going
 on
 
 ```{code-cell} ipython3
@@ -297,7 +297,7 @@ The output should look like this
 
 ### Exercise 1
 
-Here\'s one solution
+Here's one solution
 
 ```{code-cell} ipython3
 def f(x, theta):

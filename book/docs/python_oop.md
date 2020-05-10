@@ -46,10 +46,10 @@ definitions**.
 Classes are blueprints that help you build objects according to your own
 specifications.
 
-It takes a little while to get used to the syntax so we\'ll provide
+It takes a little while to get used to the syntax so we'll provide
 plenty of examples.
 
-We\'ll use the following imports:
+We'll use the following imports:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -67,7 +67,7 @@ OOP is supported in many languages:
     on.
 -   C is a procedural language, while C++ is C with OOP added on top.
 
-Let\'s cover general OOP concepts before we specialize to Python.
+Let's cover general OOP concepts before we specialize to Python.
 
 ### Key Concepts
 
@@ -139,7 +139,7 @@ For example,
 -   *a general equilibrium theory* consists of a commodity space,
     preferences, technologies, and an equilibrium definition
 -   *a game* consists of a list of players, lists of actions available
-    to each player, player payoffs as functions of all players\'
+    to each player, player payoffs as functions of all players'
     actions, and a timing protocol
 
 These are all abstractions that collect together \"objects\" of the same
@@ -150,7 +150,7 @@ Recognizing common structure allows us to employ common tools.
 In economic theory, this might be a proposition that applies to all
 games of a certain type.
 
-In Python, this might be a method that\'s useful for all Markov chains
+In Python, this might be a method that's useful for all Markov chains
 (e.g., `simulate`).
 
 When we use OOP, the `simulate` method is conveniently bundled together
@@ -158,16 +158,16 @@ with the Markov chain object.
 
 ## Defining Your Own Classes
 
-Let\'s build some simple classes to start off.
+Let's build some simple classes to start off.
 
 (oop_consumer_class)=
 
 ### Example: A Consumer Class
 
-First, we\'ll build a `Consumer` class with
+First, we'll build a `Consumer` class with
 
--   a `wealth` attribute that stores the consumer\'s wealth (data)
--   an `earn` method, where `earn(y)` increments the consumer\'s wealth
+-   a `wealth` attribute that stores the consumer's wealth (data)
+-   an `earn` method, where `earn(y)` increments the consumer's wealth
     by `y`
 -   a `spend` method, where `spend(x)` either decreases wealth by `x` or
     returns an error if insufficient funds exist
@@ -175,7 +175,7 @@ First, we\'ll build a `Consumer` class with
 Admittedly a little contrived, this example of a class helps us
 internalize some new syntax.
 
-Here\'s one implementation
+Here's one implementation
 
 ```{code-cell} ipython3
 class Consumer:
@@ -197,7 +197,7 @@ class Consumer:
             self.wealth = new_wealth
 ```
 
-There\'s some special syntax here so let\'s step through carefully
+There's some special syntax here so let's step through carefully
 
 -   The `class` keyword indicates that we are building a class.
 
@@ -220,11 +220,11 @@ automatically.
 Calling `__init__` sets up a \"namespace\" to hold the instance data
 --- more on this soon.
 
-We\'ll also discuss the role of `self` just below.
+We'll also discuss the role of `self` just below.
 
 #### Usage
 
-Here\'s an example of usage
+Here's an example of usage
 
 ```{code-cell} ipython3
 c1 = Consumer(10)  # Create instance with initial wealth 10
@@ -261,12 +261,12 @@ c1.__dict__
 c2.__dict__
 ```
 
-When we access or set attributes we\'re actually just modifying the
+When we access or set attributes we're actually just modifying the
 dictionary maintained by the instance.
 
 #### Self
 
-If you look at the `Consumer` class definition again you\'ll see the
+If you look at the `Consumer` class definition again you'll see the
 word `self` throughout the code.
 
 The rules with `self` are that
@@ -290,7 +290,7 @@ and `self`
 -   You might wish to skip to
     `the next section <oop_solow_growth>`
     on first pass of this lecture.
--   You can return to these details after you\'ve familiarized yourself
+-   You can return to these details after you've familiarized yourself
     with more examples.
 
 Methods actually live inside a class object formed when the interpreter
@@ -334,14 +334,14 @@ def earn(self, y):
 The end result is that `self` is bound to the instance `c1` inside the
 function call.
 
-That\'s why the statement `self.wealth += y` inside `earn` ends up
+That's why the statement `self.wealth += y` inside `earn` ends up
 modifying `c1.wealth`.
 
 (oop_solow_growth)=
 
 ### Example: The Solow Growth Model
 
-For our next example, let\'s write a simple class to implement the Solow
+For our next example, let's write a simple class to implement the Solow
 growth model.
 
 The Solow growth model is a neoclassical growth model where the amount
@@ -358,14 +358,14 @@ Here
 
 -   $s$ is an exogenously given savings rate
 -   $z$ is a productivity parameter
--   $\alpha$ is capital\'s share of income
+-   $\alpha$ is capital's share of income
 -   $n$ is the population growth rate
 -   $\delta$ is the depreciation rate
 
 The **steady state** of the model is the $k$ that solves
 {math:numref}`solow_lom` when $k_{t+1} = k_t = k$.
 
-Here\'s a class that implements this model.
+Here's a class that implements this model.
 
 Some points of interest in the code are
 
@@ -427,7 +427,7 @@ class Solow:
         return path
 ```
 
-Here\'s a little program that uses the class to compute time series from
+Here's a little program that uses the class to compute time series from
 two different initial conditions.
 
 The common steady state is also plotted for comparison
@@ -455,7 +455,7 @@ plt.show()
 
 ### Example: A Market
 
-Next, let\'s write a class for a simple one good market where agents are
+Next, let's write a class for a simple one good market where agents are
 price takers.
 
 The market consists of the following objects:
@@ -473,7 +473,7 @@ The class provides methods to compute various values of interest,
 including competitive equilibrium price and quantity, tax revenue
 raised, consumer surplus and producer surplus.
 
-Here\'s our implementation.
+Here's our implementation.
 
 (It uses a function from SciPy called `quad` for numerical
 integration---a topic we will say more about later on.)
@@ -532,7 +532,7 @@ class Market:
         return -(self.az / self.bz) + (1 / self.bz) * x
 ```
 
-Here\'s a sample of usage
+Here's a sample of usage
 
 ```{code-cell} ipython3
 baseline_params = 15, .5, -2, .5, 3
@@ -544,7 +544,7 @@ print("equilibrium price = ", m.price())
 print("consumer surplus = ", m.consumer_surp())
 ```
 
-Here\'s a short program that uses this class to plot an inverse demand
+Here's a short program that uses this class to plot an inverse demand
 curve together with inverse supply curves with and without taxes
 
 ```{code-cell} ipython3
@@ -585,7 +585,7 @@ def deadw(m):
     return surp1 - surp2
 ```
 
-Here\'s an example of usage
+Here's an example of usage
 
 ```{code-cell} ipython3
 baseline_params = 15, .5, -2, .5, 3
@@ -595,7 +595,7 @@ deadw(m)  # Show deadweight loss
 
 ### Example: Chaos
 
-Let\'s look at one more example, related to chaotic dynamics in
+Let's look at one more example, related to chaotic dynamics in
 nonlinear systems.
 
 One simple transition rule that can generate complex dynamics is the
@@ -611,9 +611,9 @@ x_{t+1} = r x_t(1 - x_t) ,
 \quad r \in [0, 4]
 ```
 
-Let\'s write a class for generating time series from this model.
+Let's write a class for generating time series from this model.
 
-Here\'s one implementation
+Here's one implementation
 
 ```{code-cell} ipython3
 class Chaos:
@@ -639,7 +639,7 @@ class Chaos:
       return path
 ```
 
-Here\'s an example of usage
+Here's an example of usage
 
 ```{code-cell} ipython3
 ch = Chaos(0.1, 4.0)     # x0 = 0.1 and r = 0.4

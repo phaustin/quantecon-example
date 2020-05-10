@@ -13,7 +13,7 @@ kernelspec:
 
 # Numba
 
-In addition to what\'s in Anaconda, this lecture will need the following
+In addition to what's in Anaconda, this lecture will need the following
 libraries:
 
 ```{code-cell} ipython3
@@ -26,7 +26,7 @@ Please also make sure that you have the latest version of Anaconda,
 since old versions are a
 {ref}`common source of errors <troubleshooting>`.
 
-Let\'s start with some imports:
+Let's start with some imports:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -79,14 +79,14 @@ This lecture introduces the main ideas.
 
 ## Compiling Functions
 
-As stated above, Numba\'s primary use is compiling functions to fast
+As stated above, Numba's primary use is compiling functions to fast
 native machine code during runtime.
 
 (quad_map_eg)=
 
 ### An Example
 
-Let\'s consider a problem that is difficult to vectorize: generating the
+Let's consider a problem that is difficult to vectorize: generating the
 trajectory of a difference equation given an initial condition.
 
 We will take the difference equation to be the quadratic map
@@ -101,7 +101,7 @@ In what follows we set
 α = 4.0
 ```
 
-Here\'s the plot of a typical trajectory, starting from $x_0 = 0.1$,
+Here's the plot of a typical trajectory, starting from $x_0 = 0.1$,
 with $t$ on the x-axis
 
 ```{code-cell} ipython3
@@ -135,7 +135,7 @@ JIT-compilation.
 
 We will explain what this means momentarily.
 
-Let\'s time and compare identical function calls across these two
+Let's time and compare identical function calls across these two
 versions, starting with the original function `qm`:
 
 ```{code-cell} ipython3
@@ -146,7 +146,7 @@ qm(0.1, int(n))
 time1 = qe.toc()
 ```
 
-Now let\'s try `qm\_numba`
+Now let's try `qm\_numba`
 
 ```{code-cell} ipython3
 qe.tic()
@@ -196,7 +196,7 @@ The basic idea is this:
 -   So the strategy of Numba and other JIT compilers is to wait until
     this moment, and *then* compile the function.
 
-That\'s why it is called \"just-in-time\" compilation.
+That's why it is called \"just-in-time\" compilation.
 
 Note that, if you make the call `qm(0.5, 10)` and then follow it with
 `qm(0.9, 20)`, compilation only takes place on the first call.
@@ -218,14 +218,14 @@ In practice this would typically be done using an alternative
 {ref}`later lecture <python_advanced_features>`
 but you can skip the details at this stage.)
 
-Let\'s see how this is done.
+Let's see how this is done.
 
 ### Decorator Notation
 
 To target a function for JIT compilation we can put `@jit` before the
 function definition.
 
-Here\'s what this looks like for `qm`
+Here's what this looks like for `qm`
 
 ```{code-cell} ipython3
 @jit
@@ -300,7 +300,7 @@ For example, Numba is now quite effective at compiling classes.
 If a class is successfully compiled, then its methods act as
 JIT-compiled functions.
 
-To give one example, let\'s consider the class for analyzing the Solow
+To give one example, let's consider the class for analyzing the Solow
 growth model we created in {ref}`this lecture <python_oop>`.
 
 To compile this class we use the `@jitclass` decorator:
@@ -316,7 +316,7 @@ This is a data type representing standard floating point numbers.
 We are importing it here because Numba needs a bit of extra help with
 types when it trys to deal with classes.
 
-Here\'s our code:
+Here's our code:
 
 ```{code-cell} ipython3
 solow_data = [
@@ -421,10 +421,10 @@ compiled code that can be used from Python.
 As was the case with Numba, a key problem is the fact that Python is
 dynamically typed.
 
-As you\'ll recall, Numba solves this problem (where possible) by
+As you'll recall, Numba solves this problem (where possible) by
 inferring type.
 
-Cython\'s approach is different --- programmers add type definitions
+Cython's approach is different --- programmers add type definitions
 directly to their \"Python\" code.
 
 As such, the Cython language can be thought of as Python with type
@@ -455,11 +455,11 @@ has been developed --- you might want to give it a try.
 
 ## Summary and Comments
 
-Let\'s review the above and add some cautionary notes.
+Let's review the above and add some cautionary notes.
 
 ### Limitations
 
-As we\'ve seen, Numba needs to infer type information on all variables
+As we've seen, Numba needs to infer type information on all variables
 to generate fast machine-level instructions.
 
 For simple routines, Numba infers types very well.
@@ -467,7 +467,7 @@ For simple routines, Numba infers types very well.
 For larger ones, or for routines using external libraries, it can easily
 fail.
 
-Hence, it\'s prudent when using Numba to focus on speeding up small,
+Hence, it's prudent when using Numba to focus on speeding up small,
 time-critical snippets of code.
 
 This will give you much better performance than blanketing your Python
@@ -475,7 +475,7 @@ programs with `@jit` statements.
 
 ### A Gotcha: Global Variables
 
-Here\'s another thing to be careful about when using Numba.
+Here's another thing to be careful about when using Numba.
 
 Consider the following example
 
@@ -522,7 +522,7 @@ In the [Introduction to Quantitative Economics with
 Python](https://python-intro.quantecon.org) lecture series you can learn
 all about finite-state Markov chains.
 
-For now, let\'s just concentrate on simulating a very simple example of
+For now, let's just concentrate on simulating a very simple example of
 such a chain.
 
 Suppose that the volatility of returns on an asset can be in one of two
@@ -582,7 +582,7 @@ def calculate_pi(n=1_000_000):
     return area_estimate * 4  # dividing by radius**2
 ```
 
-Now let\'s see how fast it runs:
+Now let's see how fast it runs:
 
 ```{code-cell} ipython3
 %time calculate_pi()
@@ -609,7 +609,7 @@ We let
 p, q = 0.1, 0.2  # Prob of leaving low and high state respectively
 ```
 
-Here\'s a pure Python version of the function
+Here's a pure Python version of the function
 
 ```{code-cell} ipython3
 def compute_series(n):
@@ -625,7 +625,7 @@ def compute_series(n):
     return x
 ```
 
-Let\'s run this code and check that the fraction of time spent in the
+Let's run this code and check that the fraction of time spent in the
 low state is about 0.666
 
 ```{code-cell} ipython3
@@ -636,7 +636,7 @@ print(np.mean(x == 0))  # Fraction of time x is in state 0
 
 This is (approximately) the right output.
 
-Now let\'s time it:
+Now let's time it:
 
 ```{code-cell} ipython3
 qe.tic()
@@ -644,7 +644,7 @@ compute_series(n)
 qe.toc()
 ```
 
-Next let\'s implement a Numba version, which is easy
+Next let's implement a Numba version, which is easy
 
 ```{code-cell} ipython3
 from numba import jit
@@ -652,14 +652,14 @@ from numba import jit
 compute_series_numba = jit(compute_series)
 ```
 
-Let\'s check we still get the right numbers
+Let's check we still get the right numbers
 
 ```{code-cell} ipython3
 x = compute_series_numba(n)
 print(np.mean(x == 0))
 ```
 
-Let\'s see the time
+Let's see the time
 
 ```{code-cell} ipython3
 qe.tic()
