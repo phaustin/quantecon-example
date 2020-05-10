@@ -3,7 +3,7 @@ import copy
 all_files = Path().glob("*.md")
 
 
-def rewrite_file(file_path):
+def rewrite_theta(file_path):
     with open(file_path,'r',encoding="utf8") as infile:
         all_lines = list(infile.readlines())
     with open(file_path,'w',encoding="utf8",
@@ -15,6 +15,15 @@ def rewrite_file(file_path):
                 new_line=a_line.replace('θ','theta')
             out.write(new_line)
 
+def rewrite_encoding(file_path):
+    with open(file_path,'rb') as infile:
+        all_bytes = infile.read()
+    new_string = all_bytes.decode("utf8", errors="replace")
+    with open(file_path,'w',encoding="utf8") as out:
+        out.write(new_string)
+
+
 for a_file in all_files:
     print(a_file)
-    rewrite_file(a_file.resolve())
+    rewrite_theta(a_file.resolve())
+    rewrite_encoding(a_file.resolve())
