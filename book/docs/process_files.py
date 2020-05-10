@@ -13,6 +13,8 @@ def rewrite_theta(file_path):
             if a_line.find('θ') > -1:
                 print(f'hit it with {a_line}')
                 new_line=a_line.replace('θ','theta')
+            if a_line.find(r"\'") > -1:
+                print(f'hit single quote {a_line}')
             out.write(new_line)
 
 def rewrite_encoding(file_path):
