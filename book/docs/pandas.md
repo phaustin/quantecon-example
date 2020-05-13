@@ -1,12 +1,26 @@
 ---
 jupytext:
+  cell_metadata_filter: all
+  notebook_metadata_filter: all,-toc,-latex_envs
   text_representation:
     extension: .md
     format_name: myst
+    format_version: '0.8'
+    jupytext_version: 1.4.2
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
+language_info:
+  codemirror_mode:
+    name: ipython
+    version: 3
+  file_extension: .py
+  mimetype: text/x-python
+  name: python
+  nbconvert_exporter: python
+  pygments_lexer: ipython3
+  version: 3.7.6
 ---
 
 (pd)=
@@ -64,6 +78,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 import requests
+import time
 ```
 
 ## Series
@@ -574,6 +589,20 @@ glue("pandas_share_prices", fig, display=False)
 
 Following the work you did in {ref}`Exercise 1 <pd_ex1>`, you can query the data using `read_data` by updating the
 start and end dates accordingly.
+
+```{code-cell} ipython3
+time.mktime?
+out=dt.datetime(1928, 1, 2).timetuple()
+out
+```
+
+```{code-cell} ipython3
+#https://stackoverflow.com/questions/2518706/python-mktime-overflow-error
+start_dt = dt.datetime(1928, 1, 2)
+epoch = dt.datetime(1970, 1, 1)
+start_seconds = (start_dt - epoch)
+start_seconds
+```
 
 ```{code-cell} ipython3
 indices_data = read_data(
