@@ -15,7 +15,9 @@ dependencies:
   - pandas
   - networkx
   - numba
+  - jupytext
   - pip
   - pip:
-    - git+https://github.com/ExecutableBookProject/jupyter-book
+    - git+https://github.com/executablebooks/jupyter-book
+    - pandas_datareader
 

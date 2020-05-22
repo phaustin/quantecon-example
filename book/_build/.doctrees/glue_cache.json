@@ -1,0 +1,72 @@
+{
+  "docs/matplotlib": {
+    "matplotlib_ex1": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 432x288 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "matplotlib_ex1"
+        },
+        "filenames": {
+          "image/png": "/Users/phil/repos/quantecon-example/book/_build/jupyter_execute/docs/matplotlib_22_0.png"
+        }
+      },
+      "output_type": "display_data"
+    }
+  },
+  "docs/pandas": {
+    "pandas_indices_pctchange": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 432x288 with 4 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "pandas_indices_pctchange"
+        },
+        "filenames": {
+          "image/png": "/Users/phil/repos/quantecon-example/book/_build/jupyter_execute/docs/pandas_83_0.png"
+        }
+      },
+      "output_type": "display_data"
+    },
+    "pandas_share_prices": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 432x288 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "pandas_share_prices"
+        },
+        "filenames": {
+          "image/png": "/Users/phil/repos/quantecon-example/book/_build/jupyter_execute/docs/pandas_74_0.png"
+        }
+      },
+      "output_type": "display_data"
+    }
+  },
+  "docs/python_by_example": {
+    "test_program_1_updated": {
+      "data": {
+        "application/papermill.record/image/png": null,
+        "application/papermill.record/text/plain": "<Figure size 432x288 with 1 Axes>"
+      },
+      "metadata": {
+        "scrapbook": {
+          "mime_prefix": "application/papermill.record/",
+          "name": "test_program_1_updated"
+        },
+        "filenames": {
+          "image/png": "/Users/phil/repos/quantecon-example/book/_build/jupyter_execute/docs/python_by_example_5_0.png"
+        }
+      },
+      "output_type": "display_data"
+    }
+  }
+}

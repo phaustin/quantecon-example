@@ -1,28 +1,3 @@
----
-jupytext:
-  cell_metadata_filter: all
-  notebook_metadata_filter: all,-toc,-latex_envs
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: '0.8'
-    jupytext_version: 1.4.2
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
-language_info:
-  codemirror_mode:
-    name: ipython
-    version: 3
-  file_extension: .py
-  mimetype: text/x-python
-  name: python
-  nbconvert_exporter: python
-  pygments_lexer: ipython3
-  version: 3.7.6
----
-
 (pd)=
 
 # Pandas
@@ -30,11 +5,7 @@ language_info:
 In addition to what's in Anaconda, this lecture will need the following
 libraries:
 
-```{code-cell} ipython3
-:tags: [remove-output]
-
 !pip install --upgrade pandas-datareader
-```
 
 ## Overview
 
@@ -72,13 +43,11 @@ This lecture will provide a basic introduction to pandas.
 Throughout the lecture, we will assume that the following imports have
 taken place
 
-```{code-cell} ipython3
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 import requests
-```
 
 ## Series
 
@@ -91,10 +60,8 @@ A `DataFrame` is an object for storing related columns of data.
 
 Let\'s start with `Series`
 
-```{code-cell} ipython3
 s = pd.Series(np.random.randn(4), name='daily returns')
 s
-```
 
 Here you can imagine the indices `0, 1, 2, 3` as indexing four listed
 companies, and the values being daily returns on their shares.
@@ -102,28 +69,20 @@ companies, and the values being daily returns on their shares.
 Pandas `Series` are built on top of NumPy arrays and support many
 similar operations
 
-```{code-cell} ipython3
 s * 100
-```
 
-```{code-cell} ipython3
 np.abs(s)
-```
 
 But `Series` provide more than NumPy arrays.
 
 Not only do they have some additional (statistically oriented) methods
 
-```{code-cell} ipython3
 s.describe()
-```
 
 But their indices are more flexible
 
-```{code-cell} ipython3
 s.index = ['AMZN', 'AAPL', 'MSFT', 'GOOG']
 s
-```
 
 Viewed in this way, `Series` are like fast, efficient Python
 dictionaries (with the restriction that the items in the dictionary all
@@ -131,18 +90,12 @@ have the same type---in this case, floats).
 
 In fact, you can use much of the same syntax as Python dictionaries
 
-```{code-cell} ipython3
 s['AMZN']
-```
 
-```{code-cell} ipython3
 s['AMZN'] = 0
 s
-```
 
-```{code-cell} ipython3
 'AAPL' in s
-```
 
 ## DataFrames
 
@@ -186,42 +139,30 @@ Supposing you have this data saved as `test_pwt.csv` in the present
 working directory (type `%pwd` in Jupyter to see what this is), it can
 be read in as follows:
 
-```{code-cell} ipython3
 df = pd.read_csv('https://raw.githubusercontent.com/QuantEcon/lecture-source-py/master/source/_static/lecture_specific/pandas/data/test_pwt.csv')
 type(df)
-```
 
-```{code-cell} ipython3
 df
-```
 
 We can select particular rows using standard Python array slicing
 notation
 
-```{code-cell} ipython3
 df[2:5]
-```
 
 To select columns, we can pass a list containing the names of the
 desired columns represented as strings
 
-```{code-cell} ipython3
 df[['country', 'tcgdp']]
-```
 
 To select both rows and columns using integers, the `iloc` attribute
 should be used with the format `.iloc[rows, columns]`
 
-```{code-cell} ipython3
 df.iloc[2:5, 0:4]
-```
 
 To select rows and columns using a mixture of integers and labels, the
 `loc` attribute can be used in a similar way
 
-```{code-cell} ipython3
 df.loc[df.index[2:5], ['country', 'tcgdp']]
-```
 
 Let\'s imagine that we\'re only interested in population (`POP`) and
 total GDP (`tcgdp`).
@@ -229,10 +170,8 @@ total GDP (`tcgdp`).
 One way to strip the data frame `df` down to only these variables is to
 overwrite the dataframe using the selection method described above
 
-```{code-cell} ipython3
 df = df[['country', 'POP', 'tcgdp']]
 df
-```
 
 Here the index `0, 1,..., 7` is redundant because we can use the country
 names as an index.
@@ -240,32 +179,24 @@ names as an index.
 To do this, we set the index to be the `country` variable in the
 dataframe
 
-```{code-cell} ipython3
 df = df.set_index('country')
 df
-```
 
 Let\'s give the columns slightly better names
 
-```{code-cell} ipython3
 df.columns = 'population', 'total GDP'
 df
-```
 
 Population is in thousands, let\'s revert to single units
 
-```{code-cell} ipython3
 df['population'] = df['population'] * 1e3
 df
-```
 
 Next, we\'re going to add a column showing real GDP per capita,
 multiplying by 1,000,000 as we go because total GDP is in millions
 
-```{code-cell} ipython3
 df['GDP percap'] = df['total GDP'] * 1e6 / df['population']
 df
-```
 
 One of the nice things about pandas `DataFrame` and `Series` objects is
 that they have methods for plotting and visualization that work through
@@ -273,29 +204,23 @@ Matplotlib.
 
 For example, we can easily generate a bar plot of GDP per capita
 
-```{code-cell} ipython3
 ax = df['GDP percap'].plot(kind='bar')
 ax.set_xlabel('country', fontsize=12)
 ax.set_ylabel('GDP per capita', fontsize=12)
 plt.show()
-```
 
 At the moment the data frame is ordered alphabetically on the
 countries---let\'s change it to GDP per capita
 
-```{code-cell} ipython3
 df = df.sort_values(by='GDP percap', ascending=False)
 df
-```
 
 Plotting as before now yields
 
-```{code-cell} ipython3
 ax = df['GDP percap'].plot(kind='bar')
 ax.set_xlabel('country', fontsize=12)
 ax.set_ylabel('GDP per capita', fontsize=12)
 plt.show()
-```
 
 ## On-Line Data Sources
 
@@ -337,9 +262,7 @@ Python library for requesting data over the Internet.
 
 To begin, try the following code on your computer
 
-```{code-cell} ipython3
 r = requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')
-```
 
 If there\'s no error message, then the call has succeeded.
 
@@ -360,19 +283,13 @@ Assuming that all is working, you can now proceed to use the `source`
 object returned by the call
 `requests.get('http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv')`
 
-```{code-cell} ipython3
 url = 'http://research.stlouisfed.org/fred2/series/UNRATE/downloaddata/UNRATE.csv'
 source = requests.get(url).content.decode().split("\n")
 source[0]
-```
 
-```{code-cell} ipython3
 source[1]
-```
 
-```{code-cell} ipython3
 source[2]
-```
 
 We could now write some additional code to parse this text and store it
 as an array.
@@ -383,34 +300,24 @@ the task for us.
 We use `parse_dates=True` so that pandas recognizes our dates column,
 allowing for simple date filtering
 
-```{code-cell} ipython3
 data = pd.read_csv(url, index_col=0, parse_dates=True)
-```
 
 The data has been read into a pandas DataFrame called `data` that we can
 now manipulate in the usual way
 
-```{code-cell} ipython3
 type(data)
-```
 
-```{code-cell} ipython3
 data.head()  # A useful method to get a quick look at a data frame
-```
 
-```{code-cell} ipython3
 pd.set_option('precision', 1)
 data.describe()  # Your output might differ slightly
-```
 
 We can also plot the unemployment rate from 2006 to 2012 as follows
 
-```{code-cell} ipython3
 ax = data['2006':'2012'].plot(title='US Unemployment Rate', legend=False)
 ax.set_xlabel('year', fontsize=12)
 ax.set_ylabel('%', fontsize=12)
 plt.show()
-```
 
 Note that pandas offers many other file type alternatives.
 
@@ -444,7 +351,6 @@ some data on government debt as a ratio to GDP.
 The next code example fetches the data for you and plots time series for
 the US and Australia
 
-```{code-cell} ipython3
 from pandas_datareader import wb
 
 govt_debt = wb.download(indicator='GC.DOD.TOTL.GD.ZS', country=['US', 'AU'], start=2005, end=2016).stack().unstack(0)
@@ -454,7 +360,6 @@ ax = govt_debt.plot(lw=2)
 ax.set_xlabel('year', fontsize=12)
 plt.title("Government Debt to GDP (%)")
 plt.show()
-```
 
 The
 [documentation](https://pandas-datareader.readthedocs.io/en/latest/index.html)
@@ -468,15 +373,12 @@ provides more details on how to access various data sources.
 
 With these imports:
 
-```{code-cell} ipython3
 import datetime as dt 
 from pandas_datareader import data
-```
 
 Write a program to calculate the percentage price change over 2019 for
 the following shares:
 
-```{code-cell} ipython3
 ticker_list = {'INTC': 'Intel',
                'MSFT': 'Microsoft',
                'IBM': 'IBM',
@@ -490,11 +392,9 @@ ticker_list = {'INTC': 'Intel',
                'GOOG': 'Google',
                'SNE': 'Sony',
                'PTR': 'PetroChina'}
-```
 
 Here\'s the first part of the program
 
-```{code-cell} ipython3
 def read_data(ticker_list,
           start=dt.datetime(2019, 1, 2),
           end=dt.datetime(2019, 12, 31)): 
@@ -512,7 +412,6 @@ def read_data(ticker_list,
     return ticker
 
 ticker = read_data(ticker_list)
-```
 
 Complete the program to plot the result as a bar graph like this one:
 
@@ -527,12 +426,10 @@ Using the method `read_data` introduced in
 {ref}`Exercise 1 <pd_ex1>`, write a program to
 obtain year-on-year percentage change for the following indices:
 
-```{code-cell} ipython3
 indices_list = {'^GSPC': 'S&P 500',
                '^IXIC': 'NASDAQ',
                '^DJI': 'Dow Jones',
                '^N225': 'Nikkei'}
-```
 
 Complete the program to show summary statistics and plot the result as a
 time series graph like this one:
@@ -549,25 +446,20 @@ the percentage change.
 
 First, you can extract the data and perform the calculation such as:
 
-```{code-cell} ipython3
 p1 = ticker.iloc[0]    #Get the first set of prices as a Series
 p2 = ticker.iloc[-1]   #Get the last set of prices as a Series
 price_change = (p2 - p1) / p1 * 100
 price_change
-```
 
 Alternatively you can use an inbuilt method `pct_change` and configure
 it to perform the correct calculation using `periods` argument.
 
-```{code-cell} ipython3
 change = ticker.pct_change(periods=len(ticker)-1, axis='rows')*100
 price_change = change.iloc[-1]
 price_change
-```
 
 Then to plot the chart
 
-```{code-cell} ipython3
 price_change.sort_values(inplace=True)
 price_change = price_change.rename(index=ticker_list)
 fig, ax = plt.subplots()
@@ -575,32 +467,24 @@ ax.set_xlabel('stock', fontsize=12)
 ax.set_ylabel('percentage change in price', fontsize=12)
 price_change.plot(kind='bar', ax=ax)
 plt.show()
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
 
 from myst_nb import glue
 glue("pandas_share_prices", fig, display=False)
-```
 
 ### Exercise 2
 
 Following the work you did in {ref}`Exercise 1 <pd_ex1>`, you can query the data using `read_data` by updating the
 start and end dates accordingly.
 
-```{code-cell} ipython3
 indices_data = read_data(
         indices_list,
         start=dt.datetime(1928, 1, 2),
         end=dt.datetime(2020, 12, 31)
 )
-```
 
 Then, extract the first and last set of prices per year as DataFrames
 and calculate the yearly returns such as:
 
-```{code-cell} ipython3
 yearly_returns = pd.DataFrame()
 
 for index, name in indices_list.items():
@@ -610,17 +494,13 @@ for index, name in indices_list.items():
     yearly_returns[name] = returns
 
 yearly_returns
-```
 
 Next, you can obtain summary statistics by using the method `describe`.
 
-```{code-cell} ipython3
 yearly_returns.describe()
-```
 
 Then, to plot the chart
 
-```{code-cell} ipython3
 fig, axes = plt.subplots(2, 2)
 
 for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-D array
@@ -630,14 +510,9 @@ for iter_, ax in enumerate(axes.flatten()):            # Flatten 2-D array to 1-
     ax.set_title(index_name)
 
 plt.tight_layout() 
-```
-
-```{code-cell} ipython3
-:tags: [remove-cell]
 
 from myst_nb import glue
 glue("pandas_indices_pctchange", fig, display=False)
-```
 
 **Footnotes**
 
